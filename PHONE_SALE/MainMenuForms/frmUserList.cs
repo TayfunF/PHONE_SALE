@@ -16,5 +16,11 @@ namespace PHONE_SALE.MainMenuForms
         {
             InitializeComponent();
         }
+
+        private void frmUserList_Load(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.getUserList(dataGridViewUsers);
+        }
     }
 }

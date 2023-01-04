@@ -28,12 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            this.panelBottom.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // dataGridViewUsers
+            // 
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
+            this.dataGridViewUsers.AllowUserToOrderColumns = true;
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewUsers.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewUsers.MultiSelect = false;
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
+            this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(743, 597);
+            this.dataGridViewUsers.TabIndex = 0;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Controls.Add(this.dataGridViewUsers);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelBottom.Location = new System.Drawing.Point(0, 0);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(1009, 597);
+            this.panelBottom.TabIndex = 1;
+            // 
+            // frmUserList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1011, 597);
+            this.Controls.Add(this.panelBottom);
+            this.Name = "frmUserList";
             this.Text = "frmUserList";
+            this.Load += new System.EventHandler(this.frmUserList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            this.panelBottom.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.Panel panelBottom;
     }
 }

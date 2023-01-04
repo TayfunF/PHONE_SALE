@@ -39,7 +39,11 @@ namespace PHONE_SALE
         private void btnPhoneList_Click(object sender, EventArgs e) => showForm(new frmPhoneList());
 
         //Kullanıcı Ekle Butonu
-        private void btnAddUser_Click(object sender, EventArgs e) => showForm(new frmAddUser());
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddUser addUser = new frmAddUser();
+            addUser.ShowDialog();
+        }
 
         //Kullanıcı Listesi Butonu
         private void btnUserList_Click(object sender, EventArgs e) => showForm(new frmUserList());

@@ -123,44 +123,137 @@ namespace PHONE_SALE
         #endregion
 
         General general = new General();
+        SqlConnection con = null;
+        string query = "";
+        SqlCommand cmd = null;
+        DataTable dt = null;
+        SqlDataAdapter da = null;
 
+        //Kullanıcı Girişi
         public void userEntry(TextBox tbUsername, TextBox tbPassword)
         {
             Username = tbUsername.Text;
             Password = tbPassword.Text;
 
-            if (Username != "" || Password != "")
+            try
             {
-                string query = "Select * from Users where Username = '" + Username + "' and Password = '" + Password + "' ";
-                SqlConnection con = new SqlConnection(general.connectionString);
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                if (con.State == ConnectionState.Closed)
+                if (Username != "" || Password != "")
                 {
-                    con.Open();
-                }
+                    query = "Select * from Users where Username = '" + Username + "' and Password = '" + Password + "' ";
+                    con = new SqlConnection(general.connectionString);
+                    cmd = new SqlCommand(query, con);
 
-                SqlDataReader _dr = cmd.ExecuteReader();
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
 
-                if (_dr.Read())
-                {
-                    frmMainMenu mainMenu = new frmMainMenu();
-                    mainMenu.Show();
-                    frmLogin.ActiveForm.Visible = false;
+                    SqlDataReader _dr = cmd.ExecuteReader();
+
+                    if (_dr.Read())
+                    {
+                        frmMainMenu mainMenu = new frmMainMenu();
+                        frmLogin.ActiveForm.Visible = false;
+                        mainMenu.Show();
+                    }
+                    else
+                    {
+                        General._ShowCustomMyMessage("Kullanıcı adı ya da şifre hatalı", "Hata", General._MessageTip._error, General._MessageCategory._user);
+                    }
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
                 }
                 else
                 {
-                    General._ShowCustomMyMessage("Kullanıcı adı ya da şifre hatalı", "Hata", General._MessageTip._error, General._MessageCategory._user);
-                }
-
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
+                    General._ShowCustomMyMessage("Kullanıcı adı ya da şifre boş olamaz", "Hata", General._MessageTip._error, General._MessageCategory._user);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                General._ShowCustomMyMessage("Kullanıcı adı ya da şifre boş olamaz", "Hata", General._MessageTip._error, General._MessageCategory._user);
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
+
+        //Kullanıcı Ekleme Methodu
+        public void addUserInSystem(TextBox tbUsername, TextBox tbPassword, TextBox tbFullName, TextBox tbPhoneNumber, TextBox tbEmail, TextBox tbAddress)
+        {
+            Username = tbUsername.Text;
+            Password = tbPassword.Text;
+            FullName = tbFullName.Text;
+            PhoneNumber = tbPhoneNumber.Text;
+            Email = tbEmail.Text;
+            Address = tbAddress.Text;
+
+            try
+            {
+                if (Username != "" || Password != "" || FullName != "")
+                {
+                    con = new SqlConnection(general.connectionString);
+                    query = "insert into Users values (@Username,@Password,@FullName,@PhoneNumber,@Email,@Address,@IsActive,@CreatedDate)";
+                    cmd = new SqlCommand(query, con);
+
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    cmd.Parameters.AddWithValue("@Username", Username);
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@FullName", FullName);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Address", Address);
+                    cmd.Parameters.AddWithValue("@IsActive", 1);
+                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now.Date);
+
+                    cmd.ExecuteNonQuery();
+
+                    General._ShowCustomMyMessage("Kullanıcı sisteme eklendi", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        con.Close();
+                    }
+                }
+                else
+                {
+                    General._ShowCustomMyMessage("Kullanıcı Adı - Şifre - Ad Soyad alanları boş bırakılamaz", "Dikkat", General._MessageTip._warning, General._MessageCategory._user);
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
+
+        //Kullanıcı Listeleme Methodu
+        public void getUserList(DataGridView dataGridView)
+        {
+            con = new SqlConnection(general.connectionString);
+            query = "Select Username,FullName,PhoneNumber,Email,Address from Users where IsActive = 1";
+            da = new SqlDataAdapter(query, con);
+
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            dt = new DataTable();
+            dt.Columns.Add("Username");
+            dt.Columns.Add("FullName");
+            dt.Columns.Add("PhoneNumber");
+            dt.Columns.Add("Email");
+            dt.Columns.Add("Address");
+            da.Fill(dt);
+
+            dataGridView.DataSource = dt;
+
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
             }
         }
     }
