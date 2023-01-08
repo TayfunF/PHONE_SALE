@@ -1,4 +1,5 @@
-﻿using PHONE_SALE.MainMenuForms;
+﻿using PHONE_SALE.Helpers;
+using PHONE_SALE.MainMenuForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,11 +40,7 @@ namespace PHONE_SALE
         private void btnPhoneList_Click(object sender, EventArgs e) => showForm(new frmPhoneList());
 
         //Kullanıcı Ekle Butonu
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            frmAddUser addUser = new frmAddUser();
-            addUser.ShowDialog();
-        }
+        private void btnAddUser_Click(object sender, EventArgs e) => showForm(new frmAddUser());
 
         //Kullanıcı Listesi Butonu
         private void btnUserList_Click(object sender, EventArgs e) => showForm(new frmUserList());
@@ -59,5 +56,10 @@ namespace PHONE_SALE
 
         //Satış Listesi Butonu
         private void btnSaleList_Click(object sender, EventArgs e) => showForm(new frmSaleList());
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            General._CustomExitMessage();
+        }
     }
 }

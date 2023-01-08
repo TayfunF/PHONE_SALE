@@ -46,7 +46,7 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
             this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(743, 597);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(743, 375);
             this.dataGridViewUsers.TabIndex = 0;
             // 
             // panelBottom
@@ -55,14 +55,14 @@
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1009, 597);
+            this.panelBottom.Size = new System.Drawing.Size(1009, 375);
             this.panelBottom.TabIndex = 1;
             // 
             // frmUserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 597);
+            this.ClientSize = new System.Drawing.Size(809, 375);
             this.Controls.Add(this.panelBottom);
             this.Name = "frmUserList";
             this.Text = "frmUserList";

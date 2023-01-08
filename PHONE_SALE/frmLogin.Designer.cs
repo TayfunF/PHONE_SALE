@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblUser = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.imageListLoginButtons = new System.Windows.Forms.ImageList(this.components);
             this.btnExit = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelBottom.SuspendLayout();
@@ -158,24 +160,41 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Green;
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogin.ImageKey = "Check_32x32.png";
+            this.btnLogin.ImageList = this.imageListLoginButtons;
             this.btnLogin.Location = new System.Drawing.Point(112, 70);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(85, 44);
+            this.btnLogin.Size = new System.Drawing.Size(74, 44);
             this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Giriş Yap";
+            this.btnLogin.Text = "Giriş";
+            this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // imageListLoginButtons
+            // 
+            this.imageListLoginButtons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListLoginButtons.ImageStream")));
+            this.imageListLoginButtons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListLoginButtons.Images.SetKeyName(0, "Check_32x32.png");
+            this.imageListLoginButtons.Images.SetKeyName(1, "Delete_32x32.png");
             // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.ImageKey = "Delete_32x32.png";
+            this.btnExit.ImageList = this.imageListLoginButtons;
             this.btnExit.Location = new System.Drawing.Point(203, 70);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(85, 44);
+            this.btnExit.Size = new System.Drawing.Size(74, 44);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Çıkış Yap";
+            this.btnExit.Text = "Çıkış";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -203,6 +222,7 @@
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Yap";
@@ -231,5 +251,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.ImageList imageListLoginButtons;
     }
 }

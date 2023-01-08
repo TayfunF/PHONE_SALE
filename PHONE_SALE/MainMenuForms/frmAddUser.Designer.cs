@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUser));
             this.panelFill = new System.Windows.Forms.Panel();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(103, 102);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(103, 99);
             this.txtPhoneNumber.MaxLength = 10;
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(183, 22);
@@ -202,8 +203,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 345);
             this.Controls.Add(this.panelFill);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddUser";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kullanıcı Ekle";
             this.Load += new System.EventHandler(this.frmAddUser_Load);
             this.panelFill.ResumeLayout(false);
