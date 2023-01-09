@@ -178,14 +178,14 @@ namespace PHONE_SALE
         }
 
         //Kullanıcı Ekleme Methodu
-        public void addUserInSystem(TextBox tbUsername, TextBox tbPassword, TextBox tbFullName, TextBox tbPhoneNumber, TextBox tbEmail, TextBox tbAddress)
+        public void addUserInSystem(TextBox txtUsername, TextBox txtPassword, TextBox txtFullName, TextBox txtPhoneNumber, TextBox txtEmail, TextBox txtAddress)
         {
-            Username = tbUsername.Text;
-            Password = tbPassword.Text;
-            FullName = tbFullName.Text;
-            PhoneNumber = tbPhoneNumber.Text;
-            Email = tbEmail.Text;
-            Address = tbAddress.Text;
+            Username = txtUsername.Text;
+            Password = txtPassword.Text;
+            FullName = txtFullName.Text;
+            PhoneNumber = txtPhoneNumber.Text;
+            Email = txtEmail.Text;
+            Address = txtAddress.Text;
 
             try
             {

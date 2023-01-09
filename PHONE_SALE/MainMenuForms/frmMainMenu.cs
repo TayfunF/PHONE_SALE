@@ -29,6 +29,7 @@ namespace PHONE_SALE
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             form.BackColor = Color.DeepSkyBlue;
+            form.StartPosition = FormStartPosition.CenterParent;
             panelMid.Controls.Add(form);
             form.Show();
         }

@@ -114,6 +114,7 @@
     <Compile Include="MainMenuForms\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users.cs" />
@@ -122,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMessage.resx">
       <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForms\frmAddPhone.resx">
+      <DependentUpon>frmAddPhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForms\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
