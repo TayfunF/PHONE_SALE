@@ -202,6 +202,7 @@ namespace PHONE_SALE
         string query = "";
         SqlCommand cmd = null;
 
+        //Ürün Ekleme Methodu
         public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, TextBox txtProductionDate, TextBox txtPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, TextBox txtImage)
         {
             Brand = txtBrand.Text;

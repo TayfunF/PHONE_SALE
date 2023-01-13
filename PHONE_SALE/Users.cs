@@ -242,13 +242,8 @@ namespace PHONE_SALE
             }
 
             dt = new DataTable();
-            dt.Columns.Add("Username");
-            dt.Columns.Add("FullName");
-            dt.Columns.Add("PhoneNumber");
-            dt.Columns.Add("Email");
-            dt.Columns.Add("Address");
             da.Fill(dt);
-
+            
             dataGridView.DataSource = dt;
 
             if (con.State == ConnectionState.Open)

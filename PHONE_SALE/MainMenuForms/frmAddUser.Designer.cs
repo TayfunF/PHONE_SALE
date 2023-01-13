@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddUser));
             this.panelFill = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.imageListAddUser = new System.Windows.Forms.ImageList(this.components);
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.imageListAddUser = new System.Windows.Forms.ImageList(this.components);
             this.panelFill.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,16 @@
             this.panelFill.Name = "panelFill";
             this.panelFill.Size = new System.Drawing.Size(808, 375);
             this.panelFill.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(320, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(158, 29);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Kullanıcı Ekle";
             // 
             // txtPhoneNumber
             // 
@@ -97,6 +107,12 @@
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // imageListAddUser
+            // 
+            this.imageListAddUser.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListAddUser.ImageStream")));
+            this.imageListAddUser.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListAddUser.Images.SetKeyName(0, "Check_32x32.png");
             // 
             // txtAddress
             // 
@@ -204,22 +220,6 @@
             this.lblUser.Size = new System.Drawing.Size(101, 20);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "Kullanıcı Adı :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(320, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 29);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Kullanıcı Ekle";
-            // 
-            // imageListAddUser
-            // 
-            this.imageListAddUser.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListAddUser.ImageStream")));
-            this.imageListAddUser.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListAddUser.Images.SetKeyName(0, "Check_32x32.png");
             // 
             // frmAddUser
             // 
