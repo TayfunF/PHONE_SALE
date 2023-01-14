@@ -240,6 +240,7 @@
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.panelTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

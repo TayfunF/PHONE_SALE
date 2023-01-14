@@ -18,9 +18,9 @@ namespace PHONE_SALE
         private string _imeiNumber;
         private DateTime _productionDate;
         private DateTime _purchaseDate;
-        private float _purchasePrice;
-        private float _salePrice;
-        private int _vat;
+        private decimal _purchasePrice;
+        private decimal _salePrice;
+        private short _vat;
         private string _cpu;
         private string _os;
         private string _memory;
@@ -96,7 +96,7 @@ namespace PHONE_SALE
                 _purchaseDate = value;
             }
         }
-        public float PurchasePrice
+        public decimal PurchasePrice
         {
             get
             {
@@ -107,7 +107,7 @@ namespace PHONE_SALE
                 _purchasePrice = value;
             }
         }
-        public float SalePrice
+        public decimal SalePrice
         {
             get
             {
@@ -118,7 +118,7 @@ namespace PHONE_SALE
                 _salePrice = value;
             }
         }
-        public int Vat
+        public short Vat
         {
             get
             {
@@ -203,7 +203,7 @@ namespace PHONE_SALE
         SqlCommand cmd = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, TextBox txtProductionDate, TextBox txtPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, TextBox txtImage)
+        public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, Button txtImage)
         {
             Brand = txtBrand.Text;
             Model = txtModel.Text;
@@ -211,9 +211,9 @@ namespace PHONE_SALE
             ImeiNumber = txtImeiNumber.Text;
             ProductionDate = Convert.ToDateTime(txtProductionDate.Text);
             PurchaseDate = Convert.ToDateTime(txtPurchaseDate.Text);
-            PurchasePrice = Convert.ToInt32(txtPurchasePrice.Text);
-            SalePrice = Convert.ToInt32(txtSalePrice.Text);
-            Vat = Convert.ToInt32(txtVAT);
+            PurchasePrice = Convert.ToDecimal(txtPurchasePrice.Text);
+            SalePrice = Convert.ToDecimal(txtSalePrice.Text);
+            Vat = Convert.ToInt16(txtVAT.Text);
             Cpu = txtCPU.Text;
             OS = txtOS.Text;
             Memory = txtMemory.Text;
@@ -232,26 +232,34 @@ namespace PHONE_SALE
 
             try
             {
-                cmd.Parameters.AddWithValue("@Brand", Brand);
-                cmd.Parameters.AddWithValue("@Model", Model);
-                cmd.Parameters.AddWithValue("@SerialNumber", SerialNumber);
-                cmd.Parameters.AddWithValue("@ImeiNumber", ImeiNumber);
-                cmd.Parameters.AddWithValue("@ProductionDate", ProductionDate);
-                cmd.Parameters.AddWithValue("@PurchaseDate", PurchaseDate);
-                cmd.Parameters.AddWithValue("@PurchasePrice", PurchasePrice);
-                cmd.Parameters.AddWithValue("@SalePrice", SalePrice);
-                cmd.Parameters.AddWithValue("@VAT", Vat);
-                cmd.Parameters.AddWithValue("@CPU", Cpu);
-                cmd.Parameters.AddWithValue("@OS", OS);
-                cmd.Parameters.AddWithValue("@Memory", Memory);
-                cmd.Parameters.AddWithValue("@Resolution", Resolution);
-                cmd.Parameters.AddWithValue("@Color", Color);
-                cmd.Parameters.AddWithValue("@Image", Image);
-                cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now.Date);
-                cmd.Parameters.AddWithValue("@IsActive", 1);
+                if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "")
+                {
+                    cmd.Parameters.AddWithValue("@Brand", Brand);
+                    cmd.Parameters.AddWithValue("@Model", Model);
+                    cmd.Parameters.AddWithValue("@SerialNumber", SerialNumber);
+                    cmd.Parameters.AddWithValue("@ImeiNumber", ImeiNumber);
+                    cmd.Parameters.AddWithValue("@ProductionDate", ProductionDate);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", PurchaseDate);
+                    cmd.Parameters.AddWithValue("@PurchasePrice", PurchasePrice);
+                    cmd.Parameters.AddWithValue("@SalePrice", SalePrice);
+                    cmd.Parameters.AddWithValue("@VAT", Vat);
+                    cmd.Parameters.AddWithValue("@CPU", Cpu);
+                    cmd.Parameters.AddWithValue("@OS", OS);
+                    cmd.Parameters.AddWithValue("@Memory", Memory);
+                    cmd.Parameters.AddWithValue("@Resolution", Resolution);
+                    cmd.Parameters.AddWithValue("@Color", Color);
+                    cmd.Parameters.AddWithValue("@Image", Image);
+                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now.Date);
+                    cmd.Parameters.AddWithValue("@IsActive", 1);
 
-                cmd.ExecuteNonQuery();
-                General._ShowCustomMyMessage("Ürün eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                    cmd.ExecuteNonQuery();
+                    General._ShowCustomMyMessage("Ürün eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                }
+                else
+                {
+                    General._ShowCustomMyMessage("Eksik alanları doldurun", "Dikkat", General._MessageTip._info, General._MessageCategory._user);
+                }
+
             }
             catch (Exception ex)
             {

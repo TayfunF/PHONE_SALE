@@ -19,7 +19,11 @@ namespace PHONE_SALE
             InitializeComponent();
         }
 
-        private void FrmMainMenu_Load(object sender, EventArgs e) => panelMid.BackColor = Color.SkyBlue;
+        private void FrmMainMenu_Load(object sender, EventArgs e)
+        {
+            panelMid.BackColor = Color.SkyBlue;
+            this.MaximizeBox = false;
+        }
 
         //Container MdiParent Form Method
         private void showForm(Form form)
@@ -58,9 +62,6 @@ namespace PHONE_SALE
         //Satış Listesi Butonu
         private void btnSaleList_Click(object sender, EventArgs e) => showForm(new frmSaleList());
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            General._CustomExitMessage();
-        }
+        private void btnExit_Click(object sender, EventArgs e) => General._CustomExitMessage();
     }
 }
