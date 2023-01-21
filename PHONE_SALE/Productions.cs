@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -203,7 +204,7 @@ namespace PHONE_SALE
         SqlCommand cmd = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, Button txtImage)
+        public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
             Brand = txtBrand.Text;
             Model = txtModel.Text;
@@ -219,7 +220,7 @@ namespace PHONE_SALE
             Memory = txtMemory.Text;
             Resolution = txtResolution.Text;
             Color = txtColor.Text;
-            Image = txtImage.Text;
+            Image = pictureBoxImage.ImageLocation;
 
             con = new SqlConnection(general.connectionString);
             query = "insert into Productions values (@Brand,@Model,@SerialNumber,@ImeiNumber,@ProductionDate,@PurchaseDate,@PurchasePrice,@SalePrice,@VAT,@CPU,@OS,@Memory,@Resolution,@Color,@Image,@CreatedDate,@IsActive)";
@@ -232,7 +233,7 @@ namespace PHONE_SALE
 
             try
             {
-                if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "")
+                if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "" && PurchasePrice != 0 && SalePrice != 0 && Image != "")
                 {
                     cmd.Parameters.AddWithValue("@Brand", Brand);
                     cmd.Parameters.AddWithValue("@Model", Model);
@@ -249,7 +250,7 @@ namespace PHONE_SALE
                     cmd.Parameters.AddWithValue("@Resolution", Resolution);
                     cmd.Parameters.AddWithValue("@Color", Color);
                     cmd.Parameters.AddWithValue("@Image", Image);
-                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now.Date);
+                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
                     cmd.Parameters.AddWithValue("@IsActive", 1);
 
                     cmd.ExecuteNonQuery();

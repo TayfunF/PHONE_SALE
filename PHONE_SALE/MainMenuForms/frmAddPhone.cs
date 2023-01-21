@@ -21,19 +21,20 @@ namespace PHONE_SALE.MainMenuForms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            productions.addProduction(txtBrand, txtModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, nudPurchasePrice, nudSalePrice, nudVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, btnFileDialog);
+            productions.addProduction(txtBrand, txtModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, nudPurchasePrice, nudSalePrice, nudVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
             txtBrand.Clear();
             txtModel.Clear();
             txtSerialNumber.Clear();
             txtImeiNumber.Clear();
-            nudVat.Accelerations.Clear();
+            nudVat.Value = 1;
             txtCPU.Clear();
             txtOS.Clear();
-            nudPurchasePrice.Accelerations.Clear();
-            nudSalePrice.Accelerations.Clear();
+            nudPurchasePrice.Value = 0;
+            nudSalePrice.Value = 0;
             txtMemory.Clear();
             txtResolution.Clear();
             txtColor.Clear();
+            pictureBoxImage.Image = null;
         }
 
         //Kullanıcıdan Dosya Seçmesini istediğimiz zaman
@@ -44,12 +45,8 @@ namespace PHONE_SALE.MainMenuForms
             openFileDialog1.Filter = "Resim Dosyası |*.jpg;*.png";
             openFileDialog1.Title = "Ürüm Resmi Seç";
             openFileDialog1.ShowDialog();
-            lblImagePath.Text = openFileDialog1.SafeFileName;
-        }
-
-        private void frmAddPhone_Load(object sender, EventArgs e)
-        {
-            lblImagePath.Text = "";
+            pictureBoxImage.ImageLocation = openFileDialog1.FileName;
+            //lblImagePath.Text = openFileDialog1.SafeFileName;
         }
     }
 }
