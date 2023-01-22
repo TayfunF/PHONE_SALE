@@ -35,7 +35,7 @@ namespace PHONE_SALE.MainMenuForms
             pictureBoxImage.Image = null;
         }
 
-        //Kullanıcıdan Dosya Seçmesini istediğimiz zaman
+        //Kullanıcıdan Resim Dosyası Seçmesini istediğimiz zaman
         private void btnFileDialog_Click(object sender, EventArgs e)
         {
             openFileDialog1 = new OpenFileDialog();
