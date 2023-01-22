@@ -207,10 +207,10 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
+        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
-            Brand = txtBrand.Text;
-            Model = txtModel.Text;
+            Brand = cbBrand.Text;
+            Model = cbModel.Text;
             SerialNumber = txtSerialNumber.Text;
             ImeiNumber = txtImeiNumber.Text;
             ProductionDate = Convert.ToDateTime(txtProductionDate.Text);

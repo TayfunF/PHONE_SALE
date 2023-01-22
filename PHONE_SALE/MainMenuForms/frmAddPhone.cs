@@ -21,9 +21,7 @@ namespace PHONE_SALE.MainMenuForms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            productions.addProduction(txtBrand, txtModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, nudPurchasePrice, nudSalePrice, nudVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
-            txtBrand.Clear();
-            txtModel.Clear();
+            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, nudPurchasePrice, nudSalePrice, nudVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
             txtSerialNumber.Clear();
             txtImeiNumber.Clear();
             nudVat.Value = 1;
@@ -47,6 +45,15 @@ namespace PHONE_SALE.MainMenuForms
             openFileDialog1.ShowDialog();
             pictureBoxImage.ImageLocation = openFileDialog1.FileName;
             //lblImagePath.Text = openFileDialog1.SafeFileName;
+        }
+
+        private void frmAddPhone_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'brand_Model_DataSet.Model' table. You can move, or remove it, as needed.
+            this.modelTableAdapter.Fill(this.brand_Model_DataSet.Model);
+            // TODO: This line of code loads data into the 'brand_Model_DataSet.Brand' table. You can move, or remove it, as needed.
+            this.brandTableAdapter.Fill(this.brand_Model_DataSet.Brand);
+
         }
     }
 }
