@@ -1,6 +1,7 @@
 ﻿using PHONE_SALE.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -202,6 +203,8 @@ namespace PHONE_SALE
         SqlConnection con = null;
         string query = "";
         SqlCommand cmd = null;
+        DataTable dt = null;
+        SqlDataAdapter da = null;
 
         //Ürün Ekleme Methodu
         public void addProduction(TextBox txtBrand, TextBox txtModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
@@ -270,6 +273,36 @@ namespace PHONE_SALE
             if (con.State == System.Data.ConnectionState.Open)
             {
                 con.Close();
+            }
+        }
+
+        //Kullanıcı Listeleme Methodu
+        public void getProductionList(DataGridView dataGridView)
+        {
+            try
+            {
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from v_getProductionList";
+                da = new SqlDataAdapter(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                dt = new DataTable();
+                da.Fill(dt);
+
+                dataGridView.DataSource = dt;
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
         }
     }

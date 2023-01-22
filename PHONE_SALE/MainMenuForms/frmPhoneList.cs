@@ -16,5 +16,12 @@ namespace PHONE_SALE.MainMenuForms
         {
             InitializeComponent();
         }
+
+        private void frmPhoneList_Load(object sender, EventArgs e)
+        {
+            //this.productionsTableAdapter.Fill(this.pHONE_SALEDataSet.Productions);
+            Productions productions = new Productions();
+            productions.getProductionList(dataGridViewProductions);
+        }
     }
 }

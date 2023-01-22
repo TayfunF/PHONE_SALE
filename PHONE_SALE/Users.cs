@@ -232,23 +232,30 @@ namespace PHONE_SALE
         //Kullanıcı Listeleme Methodu
         public void getUserList(DataGridView dataGridView)
         {
-            con = new SqlConnection(general.connectionString);
-            query = "Select Username,FullName,PhoneNumber,Email,Address from Users where IsActive = 1";
-            da = new SqlDataAdapter(query, con);
-
-            if (con.State == ConnectionState.Closed)
+            try
             {
-                con.Open();
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from v_getUserList";
+                da = new SqlDataAdapter(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                dt = new DataTable();
+                da.Fill(dt);
+
+                dataGridView.DataSource = dt;
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
-
-            dt = new DataTable();
-            da.Fill(dt);
-            
-            dataGridView.DataSource = dt;
-
-            if (con.State == ConnectionState.Open)
+            catch (Exception ex)
             {
-                con.Close();
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
         }
     }
