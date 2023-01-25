@@ -28,20 +28,27 @@ namespace PHONE_SALE
         //Container MdiParent Form Method
         private void showForm(Form form)
         {
-            panelMid.Controls.Clear();
-            form.MdiParent = this;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
+            //panelMid.Controls.Clear();
+            //form.MdiParent = this;
+            //form.FormBorderStyle = FormBorderStyle.None;
+            //form.Dock = DockStyle.Fill;
             form.BackColor = Color.DeepSkyBlue;
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.Width = 824;
-            form.Height = 414;
-            panelMid.Controls.Add(form);
-            form.Show();
+            //form.StartPosition = FormStartPosition.CenterParent;
+            //panelMid.Controls.Add(form);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MaximizeBox=false;
+            form.MinimizeBox=false;
+            form.ShowDialog();
         }
 
         //Telefon Ekle Butonu
-        private void ToolStripMenuItemAddPhone_Click(object sender, EventArgs e) => showForm(new frmAddPhone());
+        private void ToolStripMenuItemAddPhone_Click(object sender, EventArgs e)
+        {
+            frmAddPhone frmAddPhone = new frmAddPhone();
+            //frmAddPhone.MinimizeBox = false;
+            //frmAddPhone.MaximizeBox = false;
+            frmAddPhone.ShowDialog();
+        }
 
         //Telefon Listesi Butonu
         private void ToolStripMenuItemPhoneList_Click(object sender, EventArgs e) => showForm(new frmPhoneList());
@@ -59,14 +66,12 @@ namespace PHONE_SALE
         private void ToolStripMenuItemCustomerList_Click(object sender, EventArgs e) => showForm(new frmCustomerList());
 
         //Satış Yap Butonu
-        private void ToolStripMenuItemMakeSale_Click(object sender, EventArgs e) => showForm(new frmSaleList());
+        private void ToolStripMenuItemMakeSale_Click(object sender, EventArgs e) => showForm(new frmMakeSale());
 
         //Satış Listesi Butonu
         private void ToolStripMenuItemSaleList_Click(object sender, EventArgs e) => showForm(new frmSaleList());
 
         //Çıkış Yap Butonu
         private void ToolStripMenuItemExit_Click(object sender, EventArgs e) => General._CustomExitMessage();
-
-
     }
 }

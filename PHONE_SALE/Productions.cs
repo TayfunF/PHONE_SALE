@@ -20,8 +20,9 @@ namespace PHONE_SALE
         private string _imeiNumber;
         private DateTime _productionDate;
         private DateTime _purchaseDate;
-        private decimal _purchasePrice;
-        private decimal _salePrice;
+        private double _purchasePrice;
+        private double _salePrice;
+        private int _amount;
         private short _vat;
         private string _cpu;
         private string _os;
@@ -98,7 +99,7 @@ namespace PHONE_SALE
                 _purchaseDate = value;
             }
         }
-        public decimal PurchasePrice
+        public double PurchasePrice
         {
             get
             {
@@ -109,7 +110,7 @@ namespace PHONE_SALE
                 _purchasePrice = value;
             }
         }
-        public decimal SalePrice
+        public double SalePrice
         {
             get
             {
@@ -120,6 +121,19 @@ namespace PHONE_SALE
                 _salePrice = value;
             }
         }
+
+        public int Amount
+        {
+            get
+            {
+                return _amount;
+            }
+            set
+            {
+                _amount = value;
+            }
+        }
+
         public short Vat
         {
             get
@@ -207,17 +221,18 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker txtProductionDate, DateTimePicker txtPurchaseDate, NumericUpDown txtPurchasePrice, NumericUpDown txtSalePrice, NumericUpDown txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
+        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, NumericUpDown nudPurchasePrice, NumericUpDown nudSalePrice, NumericUpDown nudAmount, NumericUpDown nudVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
             Brand = cbBrand.Text;
             Model = cbModel.Text;
             SerialNumber = txtSerialNumber.Text;
             ImeiNumber = txtImeiNumber.Text;
-            ProductionDate = Convert.ToDateTime(txtProductionDate.Text);
-            PurchaseDate = Convert.ToDateTime(txtPurchaseDate.Text);
-            PurchasePrice = Convert.ToDecimal(txtPurchasePrice.Text);
-            SalePrice = Convert.ToDecimal(txtSalePrice.Text);
-            Vat = Convert.ToInt16(txtVAT.Text);
+            ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
+            PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
+            PurchasePrice = Convert.ToDouble(nudPurchasePrice.Text);
+            SalePrice = Convert.ToDouble(nudSalePrice.Text);
+            Amount = Convert.ToInt32(nudAmount.Text);
+            Vat = Convert.ToInt16(nudVAT.Text);
             Cpu = txtCPU.Text;
             OS = txtOS.Text;
             Memory = txtMemory.Text;
@@ -226,7 +241,7 @@ namespace PHONE_SALE
             Image = pictureBoxImage.ImageLocation;
 
             con = new SqlConnection(general.connectionString);
-            query = "insert into Productions values (@Brand,@Model,@SerialNumber,@ImeiNumber,@ProductionDate,@PurchaseDate,@PurchasePrice,@SalePrice,@VAT,@CPU,@OS,@Memory,@Resolution,@Color,@Image,@CreatedDate,@IsActive)";
+            query = "insert into Productions values (@Brand,@Model,@SerialNumber,@ImeiNumber,@ProductionDate,@PurchaseDate,@PurchasePrice,@SalePrice,@Amount,@VAT,@CPU,@OS,@Memory,@Resolution,@Color,@Image,@CreatedDate,@IsActive)";
             cmd = new SqlCommand(query, con);
 
             if (con.State == System.Data.ConnectionState.Closed)
@@ -246,6 +261,7 @@ namespace PHONE_SALE
                     cmd.Parameters.AddWithValue("@PurchaseDate", PurchaseDate);
                     cmd.Parameters.AddWithValue("@PurchasePrice", PurchasePrice);
                     cmd.Parameters.AddWithValue("@SalePrice", SalePrice);
+                    cmd.Parameters.AddWithValue("@Amount", Amount);
                     cmd.Parameters.AddWithValue("@VAT", Vat);
                     cmd.Parameters.AddWithValue("@CPU", Cpu);
                     cmd.Parameters.AddWithValue("@OS", OS);

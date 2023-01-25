@@ -62,112 +62,115 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.cbBrand = new System.Windows.Forms.ComboBox();
-            this.cbModel = new System.Windows.Forms.ComboBox();
-            this.brand_Model_DataSet = new PHONE_SALE.Brand_Model_DataSet();
             this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.brandTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.BrandTableAdapter();
+            this.brand_Model_DataSet = new PHONE_SALE.Brand_Model_DataSet();
+            this.cbModel = new System.Windows.Forms.ComboBox();
             this.fKModelBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.brandTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.BrandTableAdapter();
             this.modelTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.ModelTableAdapter();
+            this.label14 = new System.Windows.Forms.Label();
+            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudPurchasePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSalePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(46, 60);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(47, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
+            this.label1.Size = new System.Drawing.Size(48, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Marka :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(47, 94);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(47, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(48, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Model :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(38, 133);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(41, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 20);
+            this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Seri No :";
             // 
             // txtSerialNumber
             // 
-            this.txtSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSerialNumber.Location = new System.Drawing.Point(121, 127);
+            this.txtSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSerialNumber.Location = new System.Drawing.Point(97, 134);
             this.txtSerialNumber.MaxLength = 15;
             this.txtSerialNumber.Name = "txtSerialNumber";
-            this.txtSerialNumber.Size = new System.Drawing.Size(193, 26);
+            this.txtSerialNumber.Size = new System.Drawing.Size(191, 21);
             this.txtSerialNumber.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(36, 169);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(39, 171);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.Size = new System.Drawing.Size(56, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "İmei No :";
             // 
             // txtImeiNumber
             // 
-            this.txtImeiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtImeiNumber.Location = new System.Drawing.Point(121, 163);
+            this.txtImeiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtImeiNumber.Location = new System.Drawing.Point(97, 168);
             this.txtImeiNumber.MaxLength = 15;
             this.txtImeiNumber.Name = "txtImeiNumber";
-            this.txtImeiNumber.Size = new System.Drawing.Size(193, 26);
+            this.txtImeiNumber.Size = new System.Drawing.Size(191, 21);
             this.txtImeiNumber.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(1, 200);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(11, 199);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 20);
+            this.label5.Size = new System.Drawing.Size(84, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Üretim Tarihi :";
             // 
             // dtpProductionDate
             // 
             this.dtpProductionDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpProductionDate.Location = new System.Drawing.Point(121, 199);
+            this.dtpProductionDate.Location = new System.Drawing.Point(97, 198);
             this.dtpProductionDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpProductionDate.Name = "dtpProductionDate";
-            this.dtpProductionDate.Size = new System.Drawing.Size(193, 20);
+            this.dtpProductionDate.Size = new System.Drawing.Size(191, 20);
             this.dtpProductionDate.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(23, 233);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(29, 231);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.Size = new System.Drawing.Size(66, 15);
             this.label6.TabIndex = 10;
             this.label6.Text = "Alış Tarihi :";
             // 
             // dtpPurchaseDate
             // 
             this.dtpPurchaseDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpPurchaseDate.Location = new System.Drawing.Point(121, 232);
+            this.dtpPurchaseDate.Location = new System.Drawing.Point(97, 231);
             this.dtpPurchaseDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(193, 20);
@@ -176,144 +179,144 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(20, 263);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(29, 265);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 20);
+            this.label7.Size = new System.Drawing.Size(66, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "Alış Fiyatı : ";
             // 
             // nudPurchasePrice
             // 
-            this.nudPurchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudPurchasePrice.Location = new System.Drawing.Point(121, 263);
+            this.nudPurchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudPurchasePrice.Location = new System.Drawing.Point(97, 265);
             this.nudPurchasePrice.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.nudPurchasePrice.Name = "nudPurchasePrice";
-            this.nudPurchasePrice.Size = new System.Drawing.Size(191, 26);
+            this.nudPurchasePrice.Size = new System.Drawing.Size(193, 21);
             this.nudPurchasePrice.TabIndex = 13;
             this.nudPurchasePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nudSalePrice
             // 
-            this.nudSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudSalePrice.Location = new System.Drawing.Point(121, 295);
+            this.nudSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudSalePrice.Location = new System.Drawing.Point(602, 65);
             this.nudSalePrice.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.nudSalePrice.Name = "nudSalePrice";
-            this.nudSalePrice.Size = new System.Drawing.Size(191, 26);
-            this.nudSalePrice.TabIndex = 15;
+            this.nudSalePrice.Size = new System.Drawing.Size(193, 21);
+            this.nudSalePrice.TabIndex = 19;
             this.nudSalePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(9, 297);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(526, 65);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 20);
+            this.label8.Size = new System.Drawing.Size(74, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "Satış Fiyatı : ";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(366, 54);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(553, 102);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.Size = new System.Drawing.Size(47, 15);
             this.label9.TabIndex = 16;
             this.label9.Text = "Kdv % :";
             // 
             // txtCPU
             // 
-            this.txtCPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCPU.Location = new System.Drawing.Point(440, 83);
+            this.txtCPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtCPU.Location = new System.Drawing.Point(603, 130);
             this.txtCPU.MaxLength = 15;
             this.txtCPU.Name = "txtCPU";
-            this.txtCPU.Size = new System.Drawing.Size(173, 26);
-            this.txtCPU.TabIndex = 19;
+            this.txtCPU.Size = new System.Drawing.Size(193, 21);
+            this.txtCPU.TabIndex = 23;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(368, 89);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(549, 132);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 20);
+            this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 18;
             this.label10.Text = "İşlemci :";
             // 
             // txtMemory
             // 
-            this.txtMemory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtMemory.Location = new System.Drawing.Point(440, 154);
+            this.txtMemory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMemory.Location = new System.Drawing.Point(603, 194);
             this.txtMemory.MaxLength = 15;
             this.txtMemory.Name = "txtMemory";
-            this.txtMemory.Size = new System.Drawing.Size(173, 26);
-            this.txtMemory.TabIndex = 23;
+            this.txtMemory.Size = new System.Drawing.Size(193, 21);
+            this.txtMemory.TabIndex = 27;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(371, 160);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(553, 196);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 20);
+            this.label11.Size = new System.Drawing.Size(48, 15);
             this.label11.TabIndex = 22;
             this.label11.Text = "Hafıza :";
             // 
             // txtResolution
             // 
-            this.txtResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtResolution.Location = new System.Drawing.Point(440, 186);
+            this.txtResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtResolution.Location = new System.Drawing.Point(603, 230);
             this.txtResolution.MaxLength = 15;
             this.txtResolution.Name = "txtResolution";
-            this.txtResolution.Size = new System.Drawing.Size(173, 26);
-            this.txtResolution.TabIndex = 25;
+            this.txtResolution.Size = new System.Drawing.Size(193, 21);
+            this.txtResolution.TabIndex = 29;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(337, 192);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(526, 230);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 20);
+            this.label12.Size = new System.Drawing.Size(75, 15);
             this.label12.TabIndex = 24;
             this.label12.Text = "Çözünürlük :";
             // 
             // txtColor
             // 
-            this.txtColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtColor.Location = new System.Drawing.Point(440, 218);
+            this.txtColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtColor.Location = new System.Drawing.Point(603, 266);
             this.txtColor.MaxLength = 15;
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(173, 26);
-            this.txtColor.TabIndex = 27;
+            this.txtColor.Size = new System.Drawing.Size(193, 21);
+            this.txtColor.TabIndex = 31;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(375, 224);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(556, 269);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 20);
+            this.label13.Size = new System.Drawing.Size(45, 15);
             this.label13.TabIndex = 26;
             this.label13.Text = "Renk : ";
             // 
             // btnFileDialog
             // 
             this.btnFileDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnFileDialog.Location = new System.Drawing.Point(639, 200);
+            this.btnFileDialog.Location = new System.Drawing.Point(334, 226);
             this.btnFileDialog.Name = "btnFileDialog";
             this.btnFileDialog.Size = new System.Drawing.Size(153, 33);
-            this.btnFileDialog.TabIndex = 29;
+            this.btnFileDialog.TabIndex = 17;
             this.btnFileDialog.Text = "Resim Seç";
             this.btnFileDialog.UseVisualStyleBackColor = true;
             this.btnFileDialog.Click += new System.EventHandler(this.btnFileDialog_Click);
@@ -326,10 +329,10 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.ImageKey = "Check_32x32.png";
             this.btnSave.ImageList = this.imageListAddProduction;
-            this.btnSave.Location = new System.Drawing.Point(461, 295);
+            this.btnSave.Location = new System.Drawing.Point(355, 310);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(107, 58);
-            this.btnSave.TabIndex = 30;
+            this.btnSave.Size = new System.Drawing.Size(101, 53);
+            this.btnSave.TabIndex = 33;
             this.btnSave.Text = "Kaydet";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
@@ -343,27 +346,27 @@
             // 
             // txtOS
             // 
-            this.txtOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOS.Location = new System.Drawing.Point(440, 118);
+            this.txtOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtOS.Location = new System.Drawing.Point(603, 164);
             this.txtOS.MaxLength = 15;
             this.txtOS.Name = "txtOS";
-            this.txtOS.Size = new System.Drawing.Size(173, 26);
-            this.txtOS.TabIndex = 21;
+            this.txtOS.Size = new System.Drawing.Size(193, 21);
+            this.txtOS.TabIndex = 25;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(315, 124);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(508, 168);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(119, 20);
+            this.label15.Size = new System.Drawing.Size(93, 15);
             this.label15.TabIndex = 20;
             this.label15.Text = "İşletim Sistemi :";
             // 
             // nudVat
             // 
-            this.nudVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudVat.Location = new System.Drawing.Point(440, 51);
+            this.nudVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudVat.Location = new System.Drawing.Point(602, 101);
             this.nudVat.Maximum = new decimal(new int[] {
             18,
             0,
@@ -375,8 +378,8 @@
             0,
             0});
             this.nudVat.Name = "nudVat";
-            this.nudVat.Size = new System.Drawing.Size(173, 26);
-            this.nudVat.TabIndex = 17;
+            this.nudVat.Size = new System.Drawing.Size(193, 21);
+            this.nudVat.TabIndex = 21;
             this.nudVat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudVat.Value = new decimal(new int[] {
             1,
@@ -391,8 +394,8 @@
             // pictureBoxImage
             // 
             this.pictureBoxImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxImage.Location = new System.Drawing.Point(624, 51);
+            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxImage.Location = new System.Drawing.Point(317, 70);
             this.pictureBoxImage.Name = "pictureBoxImage";
             this.pictureBoxImage.Size = new System.Drawing.Size(179, 138);
             this.pictureBoxImage.TabIndex = 32;
@@ -403,55 +406,82 @@
             this.cbBrand.DataSource = this.brandBindingSource;
             this.cbBrand.DisplayMember = "Brand";
             this.cbBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbBrand.FormattingEnabled = true;
-            this.cbBrand.Location = new System.Drawing.Point(121, 54);
+            this.cbBrand.Location = new System.Drawing.Point(97, 62);
             this.cbBrand.MaxLength = 15;
             this.cbBrand.Name = "cbBrand";
-            this.cbBrand.Size = new System.Drawing.Size(191, 28);
+            this.cbBrand.Size = new System.Drawing.Size(191, 23);
             this.cbBrand.TabIndex = 1;
-            // 
-            // cbModel
-            // 
-            this.cbModel.DataSource = this.fKModelBrandBindingSource;
-            this.cbModel.DisplayMember = "Model";
-            this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(121, 91);
-            this.cbModel.MaxLength = 15;
-            this.cbModel.Name = "cbModel";
-            this.cbModel.Size = new System.Drawing.Size(191, 28);
-            this.cbModel.TabIndex = 3;
-            // 
-            // brand_Model_DataSet
-            // 
-            this.brand_Model_DataSet.DataSetName = "Brand_Model_DataSet";
-            this.brand_Model_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // brandBindingSource
             // 
             this.brandBindingSource.DataMember = "Brand";
             this.brandBindingSource.DataSource = this.brand_Model_DataSet;
             // 
-            // brandTableAdapter
+            // brand_Model_DataSet
             // 
-            this.brandTableAdapter.ClearBeforeFill = true;
+            this.brand_Model_DataSet.DataSetName = "Brand_Model_DataSet";
+            this.brand_Model_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cbModel
+            // 
+            this.cbModel.DataSource = this.fKModelBrandBindingSource;
+            this.cbModel.DisplayMember = "Model";
+            this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbModel.FormattingEnabled = true;
+            this.cbModel.Location = new System.Drawing.Point(97, 101);
+            this.cbModel.MaxLength = 15;
+            this.cbModel.Name = "cbModel";
+            this.cbModel.Size = new System.Drawing.Size(191, 23);
+            this.cbModel.TabIndex = 3;
             // 
             // fKModelBrandBindingSource
             // 
             this.fKModelBrandBindingSource.DataMember = "FK_Model_Brand";
             this.fKModelBrandBindingSource.DataSource = this.brandBindingSource;
             // 
+            // brandTableAdapter
+            // 
+            this.brandTableAdapter.ClearBeforeFill = true;
+            // 
             // modelTableAdapter
             // 
             this.modelTableAdapter.ClearBeforeFill = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(42, 301);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 15);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Miktar :";
+            // 
+            // nudAmount
+            // 
+            this.nudAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nudAmount.Location = new System.Drawing.Point(97, 299);
+            this.nudAmount.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nudAmount.Name = "nudAmount";
+            this.nudAmount.Size = new System.Drawing.Size(193, 21);
+            this.nudAmount.TabIndex = 15;
+            this.nudAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmAddPhone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(808, 375);
+            this.Controls.Add(this.nudAmount);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cbModel);
             this.Controls.Add(this.cbBrand);
             this.Controls.Add(this.pictureBoxImage);
@@ -493,9 +523,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSalePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,5 +572,7 @@
         private Brand_Model_DataSetTableAdapters.BrandTableAdapter brandTableAdapter;
         private System.Windows.Forms.BindingSource fKModelBrandBindingSource;
         private Brand_Model_DataSetTableAdapters.ModelTableAdapter modelTableAdapter;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown nudAmount;
     }
 }

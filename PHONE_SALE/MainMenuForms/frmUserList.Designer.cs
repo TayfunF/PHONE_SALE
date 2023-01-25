@@ -78,7 +78,8 @@
             this.ClientSize = new System.Drawing.Size(809, 375);
             this.Controls.Add(this.panelBottom);
             this.Name = "frmUserList";
-            this.Text = "frmUserList";
+            this.Text = "Kullanıcı Listesi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmUserList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.panelBottom.ResumeLayout(false);
