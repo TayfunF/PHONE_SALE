@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.panelMid = new System.Windows.Forms.Panel();
-            this.panelBottom = new System.Windows.Forms.Panel();
             this.menuStripMainMenu = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,15 +56,6 @@
             this.panelMid.Name = "panelMid";
             this.panelMid.Size = new System.Drawing.Size(824, 497);
             this.panelMid.TabIndex = 2;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.BackColor = System.Drawing.Color.White;
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 489);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(824, 37);
-            this.panelBottom.TabIndex = 4;
             // 
             // menuStripMainMenu
             // 
@@ -120,7 +110,7 @@
             // 
             this.ToolStripMenuItemAddPhone.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddPhone.Name = "ToolStripMenuItemAddPhone";
-            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(176, 26);
             this.ToolStripMenuItemAddPhone.Text = "Telefon Ekle";
             this.ToolStripMenuItemAddPhone.Click += new System.EventHandler(this.ToolStripMenuItemAddPhone_Click);
             // 
@@ -129,7 +119,7 @@
             this.ToolStripMenuItemPhoneList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemPhoneList.Name = "ToolStripMenuItemPhoneList";
             this.ToolStripMenuItemPhoneList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(176, 26);
             this.ToolStripMenuItemPhoneList.Text = "Telefon Listesi";
             this.ToolStripMenuItemPhoneList.Click += new System.EventHandler(this.ToolStripMenuItemPhoneList_Click);
             // 
@@ -217,7 +207,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(824, 526);
-            this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.menuStripMainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -237,7 +226,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panelMid;
-        private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.MenuStrip menuStripMainMenu;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTelephone;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddPhone;

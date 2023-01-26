@@ -41,8 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.nudPurchasePrice = new System.Windows.Forms.NumericUpDown();
-            this.nudSalePrice = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCPU = new System.Windows.Forms.TextBox();
@@ -58,7 +56,6 @@
             this.imageListAddProduction = new System.Windows.Forms.ImageList(this.components);
             this.txtOS = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.nudVat = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.cbBrand = new System.Windows.Forms.ComboBox();
@@ -69,15 +66,14 @@
             this.brandTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.BrandTableAdapter();
             this.modelTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.ModelTableAdapter();
             this.label14 = new System.Windows.Forms.Label();
-            this.nudAmount = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPurchasePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSalePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVat)).BeginInit();
+            this.txtPurchasePrice = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtSalePrice = new System.Windows.Forms.TextBox();
+            this.txtVat = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,34 +181,6 @@
             this.label7.Size = new System.Drawing.Size(66, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "Alış Fiyatı : ";
-            // 
-            // nudPurchasePrice
-            // 
-            this.nudPurchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudPurchasePrice.Location = new System.Drawing.Point(97, 265);
-            this.nudPurchasePrice.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.nudPurchasePrice.Name = "nudPurchasePrice";
-            this.nudPurchasePrice.Size = new System.Drawing.Size(193, 21);
-            this.nudPurchasePrice.TabIndex = 13;
-            this.nudPurchasePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // nudSalePrice
-            // 
-            this.nudSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudSalePrice.Location = new System.Drawing.Point(602, 65);
-            this.nudSalePrice.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.nudSalePrice.Name = "nudSalePrice";
-            this.nudSalePrice.Size = new System.Drawing.Size(193, 21);
-            this.nudSalePrice.TabIndex = 19;
-            this.nudSalePrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -363,30 +331,6 @@
             this.label15.TabIndex = 20;
             this.label15.Text = "İşletim Sistemi :";
             // 
-            // nudVat
-            // 
-            this.nudVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudVat.Location = new System.Drawing.Point(602, 101);
-            this.nudVat.Maximum = new decimal(new int[] {
-            18,
-            0,
-            0,
-            0});
-            this.nudVat.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudVat.Name = "nudVat";
-            this.nudVat.Size = new System.Drawing.Size(193, 21);
-            this.nudVat.TabIndex = 21;
-            this.nudVat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudVat.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialogImage";
@@ -460,19 +404,42 @@
             this.label14.TabIndex = 33;
             this.label14.Text = "Miktar :";
             // 
-            // nudAmount
+            // txtPurchasePrice
             // 
-            this.nudAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nudAmount.Location = new System.Drawing.Point(97, 299);
-            this.nudAmount.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.nudAmount.Name = "nudAmount";
-            this.nudAmount.Size = new System.Drawing.Size(193, 21);
-            this.nudAmount.TabIndex = 15;
-            this.nudAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPurchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPurchasePrice.Location = new System.Drawing.Point(97, 266);
+            this.txtPurchasePrice.MaxLength = 15;
+            this.txtPurchasePrice.Name = "txtPurchasePrice";
+            this.txtPurchasePrice.Size = new System.Drawing.Size(191, 21);
+            this.txtPurchasePrice.TabIndex = 13;
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAmount.Location = new System.Drawing.Point(97, 298);
+            this.txtAmount.MaxLength = 15;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(191, 21);
+            this.txtAmount.TabIndex = 15;
+            // 
+            // txtSalePrice
+            // 
+            this.txtSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSalePrice.Location = new System.Drawing.Point(602, 64);
+            this.txtSalePrice.MaxLength = 15;
+            this.txtSalePrice.Name = "txtSalePrice";
+            this.txtSalePrice.Size = new System.Drawing.Size(191, 21);
+            this.txtSalePrice.TabIndex = 19;
+            // 
+            // txtVat
+            // 
+            this.txtVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtVat.Location = new System.Drawing.Point(602, 99);
+            this.txtVat.MaxLength = 15;
+            this.txtVat.Name = "txtVat";
+            this.txtVat.Size = new System.Drawing.Size(53, 21);
+            this.txtVat.TabIndex = 21;
+            this.txtVat.Text = "1";
             // 
             // frmAddPhone
             // 
@@ -480,12 +447,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(808, 375);
-            this.Controls.Add(this.nudAmount);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cbModel);
             this.Controls.Add(this.cbBrand);
             this.Controls.Add(this.pictureBoxImage);
-            this.Controls.Add(this.nudVat);
             this.Controls.Add(this.txtOS);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.btnSave);
@@ -499,14 +464,16 @@
             this.Controls.Add(this.txtCPU);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.nudSalePrice);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.nudPurchasePrice);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpPurchaseDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpProductionDate);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtVat);
+            this.Controls.Add(this.txtSalePrice);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.txtPurchasePrice);
             this.Controls.Add(this.txtImeiNumber);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSerialNumber);
@@ -519,14 +486,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ürün Ekle";
             this.Load += new System.EventHandler(this.frmAddPhone_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nudPurchasePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSalePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,8 +508,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpPurchaseDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown nudPurchasePrice;
-        private System.Windows.Forms.NumericUpDown nudSalePrice;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCPU;
@@ -562,7 +523,6 @@
         private System.Windows.Forms.ImageList imageListAddProduction;
         private System.Windows.Forms.TextBox txtOS;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.NumericUpDown nudVat;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.ComboBox cbBrand;
@@ -573,6 +533,9 @@
         private System.Windows.Forms.BindingSource fKModelBrandBindingSource;
         private Brand_Model_DataSetTableAdapters.ModelTableAdapter modelTableAdapter;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown nudAmount;
+        private System.Windows.Forms.TextBox txtPurchasePrice;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtSalePrice;
+        private System.Windows.Forms.TextBox txtVat;
     }
 }

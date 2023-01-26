@@ -221,7 +221,7 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, NumericUpDown nudPurchasePrice, NumericUpDown nudSalePrice, NumericUpDown nudAmount, NumericUpDown nudVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
+        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
             Brand = cbBrand.Text;
             Model = cbModel.Text;
@@ -229,10 +229,10 @@ namespace PHONE_SALE
             ImeiNumber = txtImeiNumber.Text;
             ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
             PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
-            PurchasePrice = Convert.ToDouble(nudPurchasePrice.Text);
-            SalePrice = Convert.ToDouble(nudSalePrice.Text);
-            Amount = Convert.ToInt32(nudAmount.Text);
-            Vat = Convert.ToInt16(nudVAT.Text);
+            PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
+            SalePrice = Convert.ToDouble(txtSalePrice.Text);
+            Amount = Convert.ToInt32(txtAmount.Text);
+            Vat = Convert.ToInt16(txtVAT.Text);
             Cpu = txtCPU.Text;
             OS = txtOS.Text;
             Memory = txtMemory.Text;
@@ -308,7 +308,6 @@ namespace PHONE_SALE
 
                 dt = new DataTable();
                 da.Fill(dt);
-
                 dataGridView.DataSource = dt;
 
                 if (con.State == ConnectionState.Open)

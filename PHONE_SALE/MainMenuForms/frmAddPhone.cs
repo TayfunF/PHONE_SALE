@@ -21,18 +21,18 @@ namespace PHONE_SALE.MainMenuForms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, nudPurchasePrice, nudSalePrice, nudAmount, nudVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
-            txtSerialNumber.Clear();
-            txtImeiNumber.Clear();
-            nudVat.Value = 1;
-            txtCPU.Clear();
-            txtOS.Clear();
-            nudPurchasePrice.Value = 0;
-            nudSalePrice.Value = 0;
-            nudAmount.Value = 0;
-            txtMemory.Clear();
-            txtResolution.Clear();
-            txtColor.Clear();
+            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtSalePrice, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
+            txtSerialNumber.Text = "";
+            txtImeiNumber.Text = "";
+            txtVat.Text = "1";
+            txtCPU.Text = "";
+            txtOS.Text = "";
+            txtPurchasePrice.Text = "";
+            txtSalePrice.Text = "";
+            txtAmount.Text = "";
+            txtMemory.Text = "";
+            txtResolution.Text = ""; ;
+            txtColor.Text = "";
             pictureBoxImage.Image = null;
         }
 
