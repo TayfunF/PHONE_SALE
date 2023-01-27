@@ -104,13 +104,13 @@
             this.toolStripMenuItemTelephone.Image = global::PHONE_SALE.Properties.Resources.mobile_phone;
             this.toolStripMenuItemTelephone.Name = "toolStripMenuItemTelephone";
             this.toolStripMenuItemTelephone.Size = new System.Drawing.Size(150, 25);
-            this.toolStripMenuItemTelephone.Text = "Telefon İşlemleri";
+            this.toolStripMenuItemTelephone.Text = "Telefon İşlemleri";            
             // 
             // ToolStripMenuItemAddPhone
             // 
             this.ToolStripMenuItemAddPhone.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddPhone.Name = "ToolStripMenuItemAddPhone";
-            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(176, 26);
+            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(180, 26);
             this.ToolStripMenuItemAddPhone.Text = "Telefon Ekle";
             this.ToolStripMenuItemAddPhone.Click += new System.EventHandler(this.ToolStripMenuItemAddPhone_Click);
             // 
@@ -119,7 +119,7 @@
             this.ToolStripMenuItemPhoneList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemPhoneList.Name = "ToolStripMenuItemPhoneList";
             this.ToolStripMenuItemPhoneList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(176, 26);
+            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(180, 26);
             this.ToolStripMenuItemPhoneList.Text = "Telefon Listesi";
             this.ToolStripMenuItemPhoneList.Click += new System.EventHandler(this.ToolStripMenuItemPhoneList_Click);
             // 

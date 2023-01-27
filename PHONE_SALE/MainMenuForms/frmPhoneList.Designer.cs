@@ -77,6 +77,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewProductions;
+        public System.Windows.Forms.DataGridView dataGridViewProductions;
     }
 }

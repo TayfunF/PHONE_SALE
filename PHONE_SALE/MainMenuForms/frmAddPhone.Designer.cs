@@ -186,7 +186,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(526, 65);
+            this.label8.Location = new System.Drawing.Point(21, 300);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 15);
             this.label8.TabIndex = 14;
@@ -398,7 +398,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(42, 301);
+            this.label14.Location = new System.Drawing.Point(549, 70);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 15);
             this.label14.TabIndex = 33;
@@ -416,20 +416,20 @@
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAmount.Location = new System.Drawing.Point(97, 298);
+            this.txtAmount.Location = new System.Drawing.Point(604, 67);
             this.txtAmount.MaxLength = 15;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(191, 21);
-            this.txtAmount.TabIndex = 15;
+            this.txtAmount.TabIndex = 19;
             // 
             // txtSalePrice
             // 
             this.txtSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSalePrice.Location = new System.Drawing.Point(602, 64);
+            this.txtSalePrice.Location = new System.Drawing.Point(97, 299);
             this.txtSalePrice.MaxLength = 15;
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(191, 21);
-            this.txtSalePrice.TabIndex = 19;
+            this.txtSalePrice.TabIndex = 15;
             // 
             // txtVat
             // 

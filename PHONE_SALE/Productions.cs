@@ -14,6 +14,7 @@ namespace PHONE_SALE
     class Productions
     {
         #region Fields
+        private int _id;
         private string _brand;
         private string _model;
         private string _serialNumber;
@@ -33,6 +34,17 @@ namespace PHONE_SALE
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
         public string Brand
         {
             get
@@ -221,7 +233,7 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
 
         //Ürün Ekleme Methodu
-        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
+        public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVat, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
             Brand = cbBrand.Text;
             Model = cbModel.Text;
@@ -232,7 +244,7 @@ namespace PHONE_SALE
             PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
             SalePrice = Convert.ToDouble(txtSalePrice.Text);
             Amount = Convert.ToInt32(txtAmount.Text);
-            Vat = Convert.ToInt16(txtVAT.Text);
+            Vat = Convert.ToInt16(txtVat.Text);
             Cpu = txtCPU.Text;
             OS = txtOS.Text;
             Memory = txtMemory.Text;
@@ -273,6 +285,20 @@ namespace PHONE_SALE
                     cmd.Parameters.AddWithValue("@IsActive", 1);
 
                     cmd.ExecuteNonQuery();
+                    
+                    txtSerialNumber.Text = "";
+                    txtImeiNumber.Text = "";
+                    txtVat.Text = "1";
+                    txtCPU.Text = "";
+                    txtOS.Text = "";
+                    txtPurchasePrice.Text = "";
+                    txtSalePrice.Text = "";
+                    txtAmount.Text = "";
+                    txtMemory.Text = "";
+                    txtResolution.Text = ""; ;
+                    txtColor.Text = "";
+                    pictureBoxImage.Image = null;
+
                     General._ShowCustomMyMessage("Ürün eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
                 }
                 else
@@ -292,7 +318,7 @@ namespace PHONE_SALE
             }
         }
 
-        //Kullanıcı Listeleme Methodu
+        //Ürün Listeleme Methodu
         public void getProductionList(DataGridView dataGridView)
         {
             try
@@ -318,6 +344,79 @@ namespace PHONE_SALE
             catch (Exception ex)
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
+
+        //Ürün Güncelleme Methodu
+        public void updateProduction(TextBox txtId, ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
+        {
+            Id = Convert.ToInt32(txtId.Text);
+            Brand = cbBrand.Text;
+            Model = cbModel.Text;
+            SerialNumber = txtSerialNumber.Text;
+            ImeiNumber = txtImeiNumber.Text;
+            ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
+            PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
+            PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
+            SalePrice = Convert.ToDouble(txtSalePrice.Text);
+            Amount = Convert.ToInt32(txtAmount.Text);
+            Vat = Convert.ToInt16(txtVAT.Text);
+            Cpu = txtCPU.Text;
+            OS = txtOS.Text;
+            Memory = txtMemory.Text;
+            Resolution = txtResolution.Text;
+            Color = txtColor.Text;
+            Image = pictureBoxImage.ImageLocation;
+
+            con = new SqlConnection(general.connectionString);
+            query = "update Productions set Brand=@Brand, Model=@Model, SerialNumber=@SerialNumber, ImeiNumber=@ImeiNumber, ProductionDate=@ProductionDate, PurchaseDate=@PurchaseDate, PurchasePrice=@PurchasePrice, SalePrice=@SalePrice, Amount=@Amount, VAT=@VAT, CPU=@CPU, OS=@OS, Memory=@Memory, Resolution=@Resolution, Color=@Color, Image=@Image, CreatedDate=@CreatedDate, IsActive=@IsActive where Id=@Id";
+            cmd = new SqlCommand(query, con);
+
+            if (con.State == System.Data.ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            try
+            {
+                if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "" && PurchasePrice != 0 && SalePrice != 0 && Image != "")
+                {
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.Parameters.AddWithValue("@Brand", Brand);
+                    cmd.Parameters.AddWithValue("@Model", Model);
+                    cmd.Parameters.AddWithValue("@SerialNumber", SerialNumber);
+                    cmd.Parameters.AddWithValue("@ImeiNumber", ImeiNumber);
+                    cmd.Parameters.AddWithValue("@ProductionDate", ProductionDate);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", PurchaseDate);
+                    cmd.Parameters.AddWithValue("@PurchasePrice", PurchasePrice);
+                    cmd.Parameters.AddWithValue("@SalePrice", SalePrice);
+                    cmd.Parameters.AddWithValue("@Amount", Amount);
+                    cmd.Parameters.AddWithValue("@VAT", Vat);
+                    cmd.Parameters.AddWithValue("@CPU", Cpu);
+                    cmd.Parameters.AddWithValue("@OS", OS);
+                    cmd.Parameters.AddWithValue("@Memory", Memory);
+                    cmd.Parameters.AddWithValue("@Resolution", Resolution);
+                    cmd.Parameters.AddWithValue("@Color", Color);
+                    cmd.Parameters.AddWithValue("@Image", Image);
+                    cmd.Parameters.AddWithValue("@CreatedDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@IsActive", 1);
+
+                    cmd.ExecuteNonQuery();
+                    General._ShowCustomMyMessage("Ürün güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                }
+                else
+                {
+                    General._ShowCustomMyMessage("Eksik alanları doldurun", "Dikkat", General._MessageTip._info, General._MessageCategory._user);
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+
+            if (con.State == System.Data.ConnectionState.Open)
+            {
+                con.Close();
             }
         }
     }

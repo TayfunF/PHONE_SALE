@@ -22,18 +22,6 @@ namespace PHONE_SALE.MainMenuForms
         {
             Productions productions = new Productions();
             productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtSalePrice, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
-            txtSerialNumber.Text = "";
-            txtImeiNumber.Text = "";
-            txtVat.Text = "1";
-            txtCPU.Text = "";
-            txtOS.Text = "";
-            txtPurchasePrice.Text = "";
-            txtSalePrice.Text = "";
-            txtAmount.Text = "";
-            txtMemory.Text = "";
-            txtResolution.Text = ""; ;
-            txtColor.Text = "";
-            pictureBoxImage.Image = null;
         }
 
         //Kullanıcıdan Resim Dosyası Seçmesini istediğimiz zaman

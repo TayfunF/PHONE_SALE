@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdatePhone));
-            this.label14 = new System.Windows.Forms.Label();
             this.cbModel = new System.Windows.Forms.ComboBox();
+            this.fKModelBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.brand_Model_DataSet = new PHONE_SALE.Brand_Model_DataSet();
             this.cbBrand = new System.Windows.Forms.ComboBox();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.txtOS = new System.Windows.Forms.TextBox();
@@ -54,7 +56,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtVat = new System.Windows.Forms.TextBox();
             this.txtSalePrice = new System.Windows.Forms.TextBox();
-            this.txtAmount = new System.Windows.Forms.TextBox();
             this.txtPurchasePrice = new System.Windows.Forms.TextBox();
             this.txtImeiNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,41 +64,59 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnUpdateBrandModel = new System.Windows.Forms.Button();
             this.imageListUpdatePhone = new System.Windows.Forms.ImageList(this.components);
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.brandTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.BrandTableAdapter();
+            this.modelTableAdapter = new PHONE_SALE.Brand_Model_DataSetTableAdapters.ModelTableAdapter();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnUpdateBrandModel = new System.Windows.Forms.Button();
+            this.lblBrand = new System.Windows.Forms.Label();
+            this.lblModel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(43, 270);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 15);
-            this.label14.TabIndex = 120;
-            this.label14.Text = "Miktar :";
-            // 
             // cbModel
             // 
+            this.cbModel.DataSource = this.fKModelBrandBindingSource;
             this.cbModel.DisplayMember = "Model";
             this.cbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbModel.FormattingEnabled = true;
-            this.cbModel.Location = new System.Drawing.Point(98, 70);
+            this.cbModel.Location = new System.Drawing.Point(98, 64);
             this.cbModel.MaxLength = 15;
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(191, 23);
             this.cbModel.TabIndex = 92;
             // 
+            // fKModelBrandBindingSource
+            // 
+            this.fKModelBrandBindingSource.DataMember = "FK_Model_Brand";
+            this.fKModelBrandBindingSource.DataSource = this.brandBindingSource;
+            // 
+            // brandBindingSource
+            // 
+            this.brandBindingSource.DataMember = "Brand";
+            this.brandBindingSource.DataSource = this.brand_Model_DataSet;
+            // 
+            // brand_Model_DataSet
+            // 
+            this.brand_Model_DataSet.DataSetName = "Brand_Model_DataSet";
+            this.brand_Model_DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cbBrand
             // 
+            this.cbBrand.DataSource = this.brandBindingSource;
             this.cbBrand.DisplayMember = "Brand";
             this.cbBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbBrand.FormattingEnabled = true;
-            this.cbBrand.Location = new System.Drawing.Point(98, 31);
+            this.cbBrand.Location = new System.Drawing.Point(98, 23);
             this.cbBrand.MaxLength = 15;
             this.cbBrand.Name = "cbBrand";
             this.cbBrand.Size = new System.Drawing.Size(191, 23);
@@ -141,6 +160,7 @@
             this.btnFileDialog.TabIndex = 106;
             this.btnFileDialog.Text = "Resim Seç";
             this.btnFileDialog.UseVisualStyleBackColor = true;
+            this.btnFileDialog.Click += new System.EventHandler(this.btnFileDialog_Click);
             // 
             // txtColor
             // 
@@ -232,7 +252,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(22, 305);
+            this.label8.Location = new System.Drawing.Point(23, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 15);
             this.label8.TabIndex = 103;
@@ -299,20 +319,11 @@
             // txtSalePrice
             // 
             this.txtSalePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSalePrice.Location = new System.Drawing.Point(98, 304);
+            this.txtSalePrice.Location = new System.Drawing.Point(99, 273);
             this.txtSalePrice.MaxLength = 15;
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(191, 21);
             this.txtSalePrice.TabIndex = 108;
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAmount.Location = new System.Drawing.Point(98, 267);
-            this.txtAmount.MaxLength = 15;
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(191, 21);
-            this.txtAmount.TabIndex = 104;
             // 
             // txtPurchasePrice
             // 
@@ -345,7 +356,7 @@
             // txtSerialNumber
             // 
             this.txtSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSerialNumber.Location = new System.Drawing.Point(98, 103);
+            this.txtSerialNumber.Location = new System.Drawing.Point(98, 107);
             this.txtSerialNumber.MaxLength = 15;
             this.txtSerialNumber.Name = "txtSerialNumber";
             this.txtSerialNumber.Size = new System.Drawing.Size(191, 21);
@@ -355,7 +366,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(42, 105);
+            this.label3.Location = new System.Drawing.Point(42, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 93;
@@ -365,7 +376,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(48, 71);
+            this.label2.Location = new System.Drawing.Point(48, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 15);
             this.label2.TabIndex = 91;
@@ -375,7 +386,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(48, 35);
+            this.label1.Location = new System.Drawing.Point(48, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 15);
             this.label1.TabIndex = 89;
@@ -397,6 +408,13 @@
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
+            // imageListUpdatePhone
+            // 
+            this.imageListUpdatePhone.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListUpdatePhone.ImageStream")));
+            this.imageListUpdatePhone.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListUpdatePhone.Images.SetKeyName(0, "check.png");
+            this.imageListUpdatePhone.Images.SetKeyName(1, "busy.png");
+            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Green;
@@ -412,6 +430,53 @@
             this.btnUpdate.Text = "Güncelle";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // brandTableAdapter
+            // 
+            this.brandTableAdapter.ClearBeforeFill = true;
+            // 
+            // modelTableAdapter
+            // 
+            this.modelTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtId.Location = new System.Drawing.Point(43, 2);
+            this.txtId.MaxLength = 15;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(49, 21);
+            this.txtId.TabIndex = 121;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblId.Location = new System.Drawing.Point(12, 5);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(23, 15);
+            this.lblId.TabIndex = 122;
+            this.lblId.Text = "Id :";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAmount.Location = new System.Drawing.Point(100, 308);
+            this.txtAmount.MaxLength = 15;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(191, 21);
+            this.txtAmount.TabIndex = 104;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(45, 311);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 15);
+            this.label14.TabIndex = 120;
+            this.label14.Text = "Miktar :";
             // 
             // btnUpdateBrandModel
             // 
@@ -428,19 +493,40 @@
             this.btnUpdateBrandModel.Text = "Marka Model Güncelle";
             this.btnUpdateBrandModel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateBrandModel.UseVisualStyleBackColor = false;
+            this.btnUpdateBrandModel.Click += new System.EventHandler(this.btnUpdateBrandModel_Click);
             // 
-            // imageListUpdatePhone
+            // lblBrand
             // 
-            this.imageListUpdatePhone.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListUpdatePhone.ImageStream")));
-            this.imageListUpdatePhone.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListUpdatePhone.Images.SetKeyName(0, "check.png");
-            this.imageListUpdatePhone.Images.SetKeyName(1, "busy.png");
+            this.lblBrand.AutoSize = true;
+            this.lblBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBrand.ForeColor = System.Drawing.Color.Green;
+            this.lblBrand.Location = new System.Drawing.Point(97, 46);
+            this.lblBrand.Name = "lblBrand";
+            this.lblBrand.Size = new System.Drawing.Size(79, 15);
+            this.lblBrand.TabIndex = 123;
+            this.lblBrand.Text = "Yeni Marka";
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblModel.ForeColor = System.Drawing.Color.Green;
+            this.lblModel.Location = new System.Drawing.Point(98, 88);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(79, 15);
+            this.lblModel.TabIndex = 124;
+            this.lblModel.Text = "Yeni Model";
             // 
             // frmUpdatePhone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(572, 548);
+            this.Controls.Add(this.lblModel);
+            this.Controls.Add(this.lblBrand);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cbModel);
             this.Controls.Add(this.cbBrand);
@@ -478,6 +564,10 @@
             this.Controls.Add(this.btnUpdateBrandModel);
             this.Name = "frmUpdatePhone";
             this.Text = "Telefon Güncelle";
+            this.Load += new System.EventHandler(this.frmUpdatePhone_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fKModelBrandBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brand_Model_DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -485,41 +575,50 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbModel;
-        private System.Windows.Forms.ComboBox cbBrand;
-        private System.Windows.Forms.PictureBox pictureBoxImage;
-        private System.Windows.Forms.TextBox txtOS;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnFileDialog;
-        private System.Windows.Forms.TextBox txtColor;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtResolution;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtMemory;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCPU;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpPurchaseDate;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtpProductionDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtVat;
-        private System.Windows.Forms.TextBox txtSalePrice;
-        private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.TextBox txtPurchasePrice;
-        private System.Windows.Forms.TextBox txtImeiNumber;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSerialNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnUpdateBrandModel;
         private System.Windows.Forms.ImageList imageListUpdatePhone;
+        public System.Windows.Forms.ComboBox cbBrand;
+        public System.Windows.Forms.ComboBox cbModel;
+        public System.Windows.Forms.TextBox txtSerialNumber;
+        public System.Windows.Forms.TextBox txtImeiNumber;
+        public System.Windows.Forms.DateTimePicker dtpProductionDate;
+        public System.Windows.Forms.DateTimePicker dtpPurchaseDate;
+        public System.Windows.Forms.TextBox txtOS;
+        public System.Windows.Forms.TextBox txtColor;
+        public System.Windows.Forms.TextBox txtResolution;
+        public System.Windows.Forms.TextBox txtMemory;
+        public System.Windows.Forms.TextBox txtCPU;
+        public System.Windows.Forms.TextBox txtVat;
+        public System.Windows.Forms.TextBox txtSalePrice;
+        public System.Windows.Forms.TextBox txtPurchasePrice;
+        private Brand_Model_DataSet brand_Model_DataSet;
+        private System.Windows.Forms.BindingSource brandBindingSource;
+        private Brand_Model_DataSetTableAdapters.BrandTableAdapter brandTableAdapter;
+        private System.Windows.Forms.BindingSource fKModelBrandBindingSource;
+        private Brand_Model_DataSetTableAdapters.ModelTableAdapter modelTableAdapter;
+        public System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
+        public System.Windows.Forms.PictureBox pictureBoxImage;
+        private System.Windows.Forms.Button btnFileDialog;
+        public System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnUpdateBrandModel;
+        public System.Windows.Forms.Label lblBrand;
+        public System.Windows.Forms.Label lblModel;
     }
 }
