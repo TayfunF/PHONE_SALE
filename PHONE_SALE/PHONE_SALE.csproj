@@ -122,6 +122,12 @@
     <Compile Include="MainMenuForms\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhoneForms\frmUpdatePhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhoneForms\frmUpdatePhone.Designer.cs">
+      <DependentUpon>frmUpdatePhone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForms\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhoneForms\frmUpdatePhone.resx">
+      <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -223,5 +232,6 @@
   <ItemGroup>
     <None Include="Resources\busy.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

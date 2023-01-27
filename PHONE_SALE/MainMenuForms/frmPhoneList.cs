@@ -23,5 +23,10 @@ namespace PHONE_SALE.MainMenuForms
             Productions productions = new Productions();
             productions.getProductionList(dataGridViewProductions);
         }
+
+        private void dataGridViewProductions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
