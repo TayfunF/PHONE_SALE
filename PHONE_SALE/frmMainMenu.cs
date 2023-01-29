@@ -74,9 +74,6 @@ namespace PHONE_SALE
         private void ToolStripMenuItemExit_Click(object sender, EventArgs e) => General._CustomExitMessage();
 
         //Marka Ekle Butonu
-        private void ToolStripMenuItemmarkaEkle_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void ToolStripMenuItemmarkaEkle_Click(object sender, EventArgs e) => showAddTypeForm(new frmAddBrand());
     }
 }

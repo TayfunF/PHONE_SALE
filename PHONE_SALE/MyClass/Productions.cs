@@ -284,6 +284,7 @@ namespace PHONE_SALE
                     cmd.Parameters.AddWithValue("@IsActive", 1);
 
                     cmd.ExecuteNonQuery();
+                    General._ShowCustomMyMessage("Ürün eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
 
                     txtSerialNumber.Text = "";
                     txtImeiNumber.Text = "";
@@ -296,9 +297,7 @@ namespace PHONE_SALE
                     txtMemory.Text = "";
                     txtResolution.Text = ""; ;
                     txtColor.Text = "";
-                    pictureBoxImage.Image = null;
-
-                    General._ShowCustomMyMessage("Ürün eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                    pictureBoxImage.Image = null;                    
                 }
                 else
                 {
