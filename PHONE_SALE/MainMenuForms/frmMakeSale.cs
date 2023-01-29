@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PHONE_SALE.MainMenuForms
+namespace PHONE_SALE
 {
     public partial class frmMakeSale : Form
     {

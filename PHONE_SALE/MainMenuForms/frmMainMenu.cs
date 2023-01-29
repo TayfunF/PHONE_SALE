@@ -1,6 +1,4 @@
-﻿using PHONE_SALE.Helpers;
-using PHONE_SALE.MainMenuForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,5 +72,11 @@ namespace PHONE_SALE
 
         //Çıkış Yap Butonu
         private void ToolStripMenuItemExit_Click(object sender, EventArgs e) => General._CustomExitMessage();
+
+        //Marka Ekle Butonu
+        private void ToolStripMenuItemmarkaEkle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

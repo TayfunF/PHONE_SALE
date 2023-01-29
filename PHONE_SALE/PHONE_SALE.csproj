@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyClass\Brands.cs" />
     <Compile Include="Brand_Model_DataSet.cs">
       <DependentUpon>Brand_Model_DataSet.xsd</DependentUpon>
     </Compile>
@@ -74,16 +75,16 @@
     <Compile Include="MainMenuForms\frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmAddPhone.cs">
+    <Compile Include="SubForms\frmAddPhone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmAddPhone.Designer.cs">
+    <Compile Include="SubForms\frmAddPhone.Designer.cs">
       <DependentUpon>frmAddPhone.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmAddUser.cs">
+    <Compile Include="SubForms\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmAddUser.Designer.cs">
+    <Compile Include="SubForms\frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenuForms\frmCustomerList.cs">
@@ -122,16 +123,16 @@
     <Compile Include="MainMenuForms\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhoneForms\frmUpdatePhone.cs">
+    <Compile Include="SubForms\frmUpdatePhone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PhoneForms\frmUpdatePhone.Designer.cs">
+    <Compile Include="SubForms\frmUpdatePhone.Designer.cs">
       <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productions.cs" />
+    <Compile Include="MyClass\Productions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users.cs" />
+    <Compile Include="MyClass\Users.cs" />
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,10 +142,10 @@
     <EmbeddedResource Include="MainMenuForms\frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmAddPhone.resx">
+    <EmbeddedResource Include="SubForms\frmAddPhone.resx">
       <DependentUpon>frmAddPhone.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmAddUser.resx">
+    <EmbeddedResource Include="SubForms\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForms\frmCustomerList.resx">
@@ -165,7 +166,7 @@
     <EmbeddedResource Include="MainMenuForms\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PhoneForms\frmUpdatePhone.resx">
+    <EmbeddedResource Include="SubForms\frmUpdatePhone.resx">
       <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -232,6 +233,8 @@
   <ItemGroup>
     <None Include="Resources\busy.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\sitemap.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace PHONE_SALE.MainMenuForms
+﻿namespace PHONE_SALE
 {
     partial class frmUserList
     {

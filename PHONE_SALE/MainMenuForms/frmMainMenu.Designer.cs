@@ -37,6 +37,11 @@
             this.toolStripMenuItemTelephone = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAddPhone = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemPhoneList = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemMarkaveModel = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemmarkaEkle = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemmarkaListesi = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemmodelEkle = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemmodelListesi = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemUser = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemUserList = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,23 +57,24 @@
             // panelMid
             // 
             this.panelMid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMid.Location = new System.Drawing.Point(0, 29);
+            this.panelMid.Location = new System.Drawing.Point(0, 25);
             this.panelMid.Name = "panelMid";
-            this.panelMid.Size = new System.Drawing.Size(824, 497);
+            this.panelMid.Size = new System.Drawing.Size(1212, 501);
             this.panelMid.TabIndex = 2;
             // 
             // menuStripMainMenu
             // 
-            this.menuStripMainMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.menuStripMainMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.menuStripMainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.toolStripMenuItemTelephone,
+            this.ToolStripMenuItemMarkaveModel,
             this.ToolStripMenuItemUser,
             this.ToolStripMenuItemCustomer,
             this.ToolStripMenuItemSale});
             this.menuStripMainMenu.Location = new System.Drawing.Point(0, 0);
             this.menuStripMainMenu.Name = "menuStripMainMenu";
-            this.menuStripMainMenu.Size = new System.Drawing.Size(824, 29);
+            this.menuStripMainMenu.Size = new System.Drawing.Size(1212, 25);
             this.menuStripMainMenu.TabIndex = 6;
             this.menuStripMainMenu.Text = "Ana Menü";
             // 
@@ -78,21 +84,21 @@
             this.ToolStripMenuItemSettings,
             this.ToolStripMenuItemExit});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
-            this.programToolStripMenuItem.Size = new System.Drawing.Size(83, 25);
+            this.programToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
             this.programToolStripMenuItem.Text = "Program";
             // 
             // ToolStripMenuItemSettings
             // 
             this.ToolStripMenuItemSettings.Image = global::PHONE_SALE.Properties.Resources.settings;
             this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(193, 26);
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(170, 22);
             this.ToolStripMenuItemSettings.Text = "Ayarlar";
             // 
             // ToolStripMenuItemExit
             // 
             this.ToolStripMenuItemExit.Image = global::PHONE_SALE.Properties.Resources.busy;
             this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
-            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(193, 26);
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(170, 22);
             this.ToolStripMenuItemExit.Text = "Programdan Çık";
             this.ToolStripMenuItemExit.Click += new System.EventHandler(this.ToolStripMenuItemExit_Click);
             // 
@@ -103,14 +109,14 @@
             this.ToolStripMenuItemPhoneList});
             this.toolStripMenuItemTelephone.Image = global::PHONE_SALE.Properties.Resources.mobile_phone;
             this.toolStripMenuItemTelephone.Name = "toolStripMenuItemTelephone";
-            this.toolStripMenuItemTelephone.Size = new System.Drawing.Size(150, 25);
-            this.toolStripMenuItemTelephone.Text = "Telefon İşlemleri";            
+            this.toolStripMenuItemTelephone.Size = new System.Drawing.Size(78, 21);
+            this.toolStripMenuItemTelephone.Text = "Telefon";
             // 
             // ToolStripMenuItemAddPhone
             // 
             this.ToolStripMenuItemAddPhone.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddPhone.Name = "ToolStripMenuItemAddPhone";
-            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(157, 22);
             this.ToolStripMenuItemAddPhone.Text = "Telefon Ekle";
             this.ToolStripMenuItemAddPhone.Click += new System.EventHandler(this.ToolStripMenuItemAddPhone_Click);
             // 
@@ -119,9 +125,50 @@
             this.ToolStripMenuItemPhoneList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemPhoneList.Name = "ToolStripMenuItemPhoneList";
             this.ToolStripMenuItemPhoneList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(157, 22);
             this.ToolStripMenuItemPhoneList.Text = "Telefon Listesi";
             this.ToolStripMenuItemPhoneList.Click += new System.EventHandler(this.ToolStripMenuItemPhoneList_Click);
+            // 
+            // ToolStripMenuItemMarkaveModel
+            // 
+            this.ToolStripMenuItemMarkaveModel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemmarkaEkle,
+            this.ToolStripMenuItemmarkaListesi,
+            this.ToolStripMenuItemmodelEkle,
+            this.ToolStripMenuItemmodelListesi});
+            this.ToolStripMenuItemMarkaveModel.Image = global::PHONE_SALE.Properties.Resources.sitemap;
+            this.ToolStripMenuItemMarkaveModel.Name = "ToolStripMenuItemMarkaveModel";
+            this.ToolStripMenuItemMarkaveModel.Size = new System.Drawing.Size(132, 21);
+            this.ToolStripMenuItemMarkaveModel.Text = "Marka ve Model";
+            // 
+            // ToolStripMenuItemmarkaEkle
+            // 
+            this.ToolStripMenuItemmarkaEkle.Image = global::PHONE_SALE.Properties.Resources.plus;
+            this.ToolStripMenuItemmarkaEkle.Name = "ToolStripMenuItemmarkaEkle";
+            this.ToolStripMenuItemmarkaEkle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmarkaEkle.Text = "Marka Ekle";
+            this.ToolStripMenuItemmarkaEkle.Click += new System.EventHandler(this.ToolStripMenuItemmarkaEkle_Click);
+            // 
+            // ToolStripMenuItemmarkaListesi
+            // 
+            this.ToolStripMenuItemmarkaListesi.Image = global::PHONE_SALE.Properties.Resources.order;
+            this.ToolStripMenuItemmarkaListesi.Name = "ToolStripMenuItemmarkaListesi";
+            this.ToolStripMenuItemmarkaListesi.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmarkaListesi.Text = "Marka Listesi";
+            // 
+            // ToolStripMenuItemmodelEkle
+            // 
+            this.ToolStripMenuItemmodelEkle.Image = global::PHONE_SALE.Properties.Resources.plus;
+            this.ToolStripMenuItemmodelEkle.Name = "ToolStripMenuItemmodelEkle";
+            this.ToolStripMenuItemmodelEkle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmodelEkle.Text = "Model Ekle";
+            // 
+            // ToolStripMenuItemmodelListesi
+            // 
+            this.ToolStripMenuItemmodelListesi.Image = global::PHONE_SALE.Properties.Resources.order;
+            this.ToolStripMenuItemmodelListesi.Name = "ToolStripMenuItemmodelListesi";
+            this.ToolStripMenuItemmodelListesi.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmodelListesi.Text = "Model Listesi";
             // 
             // ToolStripMenuItemUser
             // 
@@ -130,14 +177,14 @@
             this.ToolStripMenuItemUserList});
             this.ToolStripMenuItemUser.Image = global::PHONE_SALE.Properties.Resources.User_32x32;
             this.ToolStripMenuItemUser.Name = "ToolStripMenuItemUser";
-            this.ToolStripMenuItemUser.Size = new System.Drawing.Size(159, 25);
-            this.ToolStripMenuItemUser.Text = "Kullanıcı İşlemleri";
+            this.ToolStripMenuItemUser.Size = new System.Drawing.Size(83, 21);
+            this.ToolStripMenuItemUser.Text = "Kullanıcı";
             // 
             // ToolStripMenuItemAddUser
             // 
             this.ToolStripMenuItemAddUser.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddUser.Name = "ToolStripMenuItemAddUser";
-            this.ToolStripMenuItemAddUser.Size = new System.Drawing.Size(185, 26);
+            this.ToolStripMenuItemAddUser.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItemAddUser.Text = "Kullanıcı Ekle";
             this.ToolStripMenuItemAddUser.Click += new System.EventHandler(this.ToolStripMenuItemAddUser_Click);
             // 
@@ -145,7 +192,7 @@
             // 
             this.ToolStripMenuItemUserList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemUserList.Name = "ToolStripMenuItemUserList";
-            this.ToolStripMenuItemUserList.Size = new System.Drawing.Size(185, 26);
+            this.ToolStripMenuItemUserList.Size = new System.Drawing.Size(162, 22);
             this.ToolStripMenuItemUserList.Text = "Kullanıcı Listesi";
             this.ToolStripMenuItemUserList.Click += new System.EventHandler(this.ToolStripMenuItemUserList_Click);
             // 
@@ -156,14 +203,14 @@
             this.ToolStripMenuItemCustomerList});
             this.ToolStripMenuItemCustomer.Image = global::PHONE_SALE.Properties.Resources.customers;
             this.ToolStripMenuItemCustomer.Name = "ToolStripMenuItemCustomer";
-            this.ToolStripMenuItemCustomer.Size = new System.Drawing.Size(154, 25);
-            this.ToolStripMenuItemCustomer.Text = "Müşteri İşlemleri";
+            this.ToolStripMenuItemCustomer.Size = new System.Drawing.Size(80, 21);
+            this.ToolStripMenuItemCustomer.Text = "Müşteri";
             // 
             // ToolStripMenuItemAddCustomer
             // 
             this.ToolStripMenuItemAddCustomer.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddCustomer.Name = "ToolStripMenuItemAddCustomer";
-            this.ToolStripMenuItemAddCustomer.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemAddCustomer.Size = new System.Drawing.Size(159, 22);
             this.ToolStripMenuItemAddCustomer.Text = "Müşteri Ekle";
             this.ToolStripMenuItemAddCustomer.Click += new System.EventHandler(this.ToolStripMenuItemAddCustomer_Click);
             // 
@@ -171,7 +218,7 @@
             // 
             this.ToolStripMenuItemCustomerList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemCustomerList.Name = "ToolStripMenuItemCustomerList";
-            this.ToolStripMenuItemCustomerList.Size = new System.Drawing.Size(180, 26);
+            this.ToolStripMenuItemCustomerList.Size = new System.Drawing.Size(159, 22);
             this.ToolStripMenuItemCustomerList.Text = "Müşteri Listesi";
             this.ToolStripMenuItemCustomerList.Click += new System.EventHandler(this.ToolStripMenuItemCustomerList_Click);
             // 
@@ -182,14 +229,14 @@
             this.ToolStripMenuItemSaleList});
             this.ToolStripMenuItemSale.Image = global::PHONE_SALE.Properties.Resources.basket;
             this.ToolStripMenuItemSale.Name = "ToolStripMenuItemSale";
-            this.ToolStripMenuItemSale.Size = new System.Drawing.Size(134, 25);
-            this.ToolStripMenuItemSale.Text = "Satış İşlemleri";
+            this.ToolStripMenuItemSale.Size = new System.Drawing.Size(63, 21);
+            this.ToolStripMenuItemSale.Text = "Satış";
             // 
             // ToolStripMenuItemMakeSale
             // 
             this.ToolStripMenuItemMakeSale.Image = global::PHONE_SALE.Properties.Resources.payment_card;
             this.ToolStripMenuItemMakeSale.Name = "ToolStripMenuItemMakeSale";
-            this.ToolStripMenuItemMakeSale.Size = new System.Drawing.Size(160, 26);
+            this.ToolStripMenuItemMakeSale.Size = new System.Drawing.Size(142, 22);
             this.ToolStripMenuItemMakeSale.Text = "Satış Yap";
             this.ToolStripMenuItemMakeSale.Click += new System.EventHandler(this.ToolStripMenuItemMakeSale_Click);
             // 
@@ -197,7 +244,7 @@
             // 
             this.ToolStripMenuItemSaleList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemSaleList.Name = "ToolStripMenuItemSaleList";
-            this.ToolStripMenuItemSaleList.Size = new System.Drawing.Size(160, 26);
+            this.ToolStripMenuItemSaleList.Size = new System.Drawing.Size(142, 22);
             this.ToolStripMenuItemSaleList.Text = "Satış Listesi";
             this.ToolStripMenuItemSaleList.Click += new System.EventHandler(this.ToolStripMenuItemSaleList_Click);
             // 
@@ -206,7 +253,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(824, 526);
+            this.ClientSize = new System.Drawing.Size(1212, 526);
             this.Controls.Add(this.panelMid);
             this.Controls.Add(this.menuStripMainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -242,6 +289,11 @@
         private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemExit;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSettings;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemMarkaveModel;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemmarkaEkle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemmarkaListesi;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemmodelEkle;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemmodelListesi;
     }
 }
 

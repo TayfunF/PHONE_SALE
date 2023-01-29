@@ -1,6 +1,4 @@
-﻿using PHONE_SALE.Helpers;
-using PHONE_SALE.MainMenuForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PHONE_SALE.PhoneForms
+namespace PHONE_SALE
 {
     public partial class frmUpdatePhone : Form
     {

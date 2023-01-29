@@ -1,4 +1,4 @@
-﻿namespace PHONE_SALE.PhoneForms
+﻿namespace PHONE_SALE
 {
     partial class frmUpdatePhone
     {
