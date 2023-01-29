@@ -23,13 +23,7 @@ namespace PHONE_SALE.MainMenuForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Users users = new Users();
-            users.addUserInSystem(txtUsername, txtPassword, txtFullName, txtPhoneNumber, txtEmail, txtAddress);
-            txtUsername.Clear();
-            txtPassword.Clear();
-            txtFullName.Clear();
-            txtPhoneNumber.Clear();
-            txtEmail.Clear();
-            txtAddress.Clear();
+            users.addUserInSystem(txtUsername, txtPassword, txtFullName, txtPhoneNumber, txtEmail, txtAddress);           
         }
 
         //PhoneNumber Sadece Rakam girebilme kontrolü

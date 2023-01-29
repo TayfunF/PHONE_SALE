@@ -1,4 +1,5 @@
-﻿using PHONE_SALE.MainMenuForms;
+﻿using PHONE_SALE.Helpers;
+using PHONE_SALE.MainMenuForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,30 +26,40 @@ namespace PHONE_SALE.PhoneForms
 
         private void btnFileDialog_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog.Filter = "Resim Dosyası |*.jpg;*.nef;*.png| Video|*.avi| Tüm Dosyalar |*.*";
-            openFileDialog1.Filter = "Resim Dosyası |*.jpg;*.png";
-            openFileDialog1.Title = "Ürüm Resmi Seç";
-            openFileDialog1.ShowDialog();
-            pictureBoxImage.ImageLocation = openFileDialog1.FileName;
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                //openFileDialog.Filter = "Resim Dosyası |*.jpg;*.nef;*.png| Video|*.avi| Tüm Dosyalar |*.*";
+                openFileDialog1.Filter = "Resim Dosyası |*.jpg;*.png";
+                openFileDialog1.Title = "Ürüm Resmi Seç";
+                openFileDialog1.ShowDialog();
+                pictureBoxImage.ImageLocation = openFileDialog1.FileName;
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
 
         private void frmUpdatePhone_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'brand_Model_DataSet.Model' table. You can move, or remove it, as needed.
-            this.modelTableAdapter.Fill(this.brand_Model_DataSet.Model);
-            // TODO: This line of code loads data into the 'brand_Model_DataSet.Brand' table. You can move, or remove it, as needed.
-            this.brandTableAdapter.Fill(this.brand_Model_DataSet.Brand);
-
+            try
+            {
+                // TODO: This line of code loads data into the 'brand_Model_DataSet.Model' table. You can move, or remove it, as needed.
+                this.modelTableAdapter.Fill(this.brand_Model_DataSet.Model);
+                // TODO: This line of code loads data into the 'brand_Model_DataSet.Brand' table. You can move, or remove it, as needed.
+                this.brandTableAdapter.Fill(this.brand_Model_DataSet.Brand);
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            frmPhoneList frmPhoneList = new frmPhoneList();
-
             productions.updateProduction(txtId, cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtVat, txtCPU, txtOS, txtMemory, txtResolution, txtCPU, pictureBoxImage);
-            frmPhoneList.dataGridViewProductions.Refresh();
             this.Close();
         }
 
@@ -56,6 +67,25 @@ namespace PHONE_SALE.PhoneForms
         {
             lblBrand.Text = cbBrand.Text;
             lblModel.Text = cbModel.Text;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool messsage = General._ShowCustomMyMessage("Silmek istediğinize emin misiniz ?", "Uyarı", General._MessageTip._question, General._MessageCategory._systemQuestion);
+
+                if (messsage)
+                {
+                    Productions productions = new Productions();
+                    productions.deleteProduction(txtId);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
     }
 }

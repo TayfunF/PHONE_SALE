@@ -407,6 +407,7 @@
             this.btnDelete.Text = "Sil";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // imageListUpdatePhone
             // 

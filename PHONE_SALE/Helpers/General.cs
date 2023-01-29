@@ -16,8 +16,7 @@ namespace PHONE_SALE.Helpers
         public static string _soyad;        //Her yeden erişebilmek için static yaptım
         public static string _ad;           //Her yeden erişebilmek için static yaptım
         public static string _kullaniciAdi; //Her yeden erişebilmek için static yaptım
-
-
+       
         #region MESAJKUTUSU_KODLARIM
         public enum _MessageTip
         {
@@ -130,7 +129,6 @@ namespace PHONE_SALE.Helpers
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
         }
-
 
         //Saati almak için
         public static void _MyCustomerTimer(Label label)

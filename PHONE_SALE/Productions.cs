@@ -1,4 +1,5 @@
 ﻿using PHONE_SALE.Helpers;
+using PHONE_SALE.MainMenuForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -235,34 +236,34 @@ namespace PHONE_SALE
         //Ürün Ekleme Methodu
         public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVat, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
-            Brand = cbBrand.Text;
-            Model = cbModel.Text;
-            SerialNumber = txtSerialNumber.Text;
-            ImeiNumber = txtImeiNumber.Text;
-            ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
-            PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
-            PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
-            SalePrice = Convert.ToDouble(txtSalePrice.Text);
-            Amount = Convert.ToInt32(txtAmount.Text);
-            Vat = Convert.ToInt16(txtVat.Text);
-            Cpu = txtCPU.Text;
-            OS = txtOS.Text;
-            Memory = txtMemory.Text;
-            Resolution = txtResolution.Text;
-            Color = txtColor.Text;
-            Image = pictureBoxImage.ImageLocation;
-
-            con = new SqlConnection(general.connectionString);
-            query = "insert into Productions values (@Brand,@Model,@SerialNumber,@ImeiNumber,@ProductionDate,@PurchaseDate,@PurchasePrice,@SalePrice,@Amount,@VAT,@CPU,@OS,@Memory,@Resolution,@Color,@Image,@CreatedDate,@IsActive)";
-            cmd = new SqlCommand(query, con);
-
-            if (con.State == System.Data.ConnectionState.Closed)
-            {
-                con.Open();
-            }
-
             try
             {
+                Brand = cbBrand.Text;
+                Model = cbModel.Text;
+                SerialNumber = txtSerialNumber.Text;
+                ImeiNumber = txtImeiNumber.Text;
+                ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
+                PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
+                PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
+                SalePrice = Convert.ToDouble(txtSalePrice.Text);
+                Amount = Convert.ToInt32(txtAmount.Text);
+                Vat = Convert.ToInt16(txtVat.Text);
+                Cpu = txtCPU.Text;
+                OS = txtOS.Text;
+                Memory = txtMemory.Text;
+                Resolution = txtResolution.Text;
+                Color = txtColor.Text;
+                Image = pictureBoxImage.ImageLocation;
+
+                con = new SqlConnection(general.connectionString);
+                query = "insert into Productions values (@Brand,@Model,@SerialNumber,@ImeiNumber,@ProductionDate,@PurchaseDate,@PurchasePrice,@SalePrice,@Amount,@VAT,@CPU,@OS,@Memory,@Resolution,@Color,@Image,@CreatedDate,@IsActive)";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
                 if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "" && PurchasePrice != 0 && SalePrice != 0 && Image != "")
                 {
                     cmd.Parameters.AddWithValue("@Brand", Brand);
@@ -285,7 +286,7 @@ namespace PHONE_SALE
                     cmd.Parameters.AddWithValue("@IsActive", 1);
 
                     cmd.ExecuteNonQuery();
-                    
+
                     txtSerialNumber.Text = "";
                     txtImeiNumber.Text = "";
                     txtVat.Text = "1";
@@ -306,15 +307,14 @@ namespace PHONE_SALE
                     General._ShowCustomMyMessage("Eksik alanları doldurun", "Dikkat", General._MessageTip._info, General._MessageCategory._user);
                 }
 
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
-            }
-
-            if (con.State == System.Data.ConnectionState.Open)
-            {
-                con.Close();
             }
         }
 
@@ -350,35 +350,35 @@ namespace PHONE_SALE
         //Ürün Güncelleme Methodu
         public void updateProduction(TextBox txtId, ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
-            Id = Convert.ToInt32(txtId.Text);
-            Brand = cbBrand.Text;
-            Model = cbModel.Text;
-            SerialNumber = txtSerialNumber.Text;
-            ImeiNumber = txtImeiNumber.Text;
-            ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
-            PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
-            PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
-            SalePrice = Convert.ToDouble(txtSalePrice.Text);
-            Amount = Convert.ToInt32(txtAmount.Text);
-            Vat = Convert.ToInt16(txtVAT.Text);
-            Cpu = txtCPU.Text;
-            OS = txtOS.Text;
-            Memory = txtMemory.Text;
-            Resolution = txtResolution.Text;
-            Color = txtColor.Text;
-            Image = pictureBoxImage.ImageLocation;
-
-            con = new SqlConnection(general.connectionString);
-            query = "update Productions set Brand=@Brand, Model=@Model, SerialNumber=@SerialNumber, ImeiNumber=@ImeiNumber, ProductionDate=@ProductionDate, PurchaseDate=@PurchaseDate, PurchasePrice=@PurchasePrice, SalePrice=@SalePrice, Amount=@Amount, VAT=@VAT, CPU=@CPU, OS=@OS, Memory=@Memory, Resolution=@Resolution, Color=@Color, Image=@Image, CreatedDate=@CreatedDate, IsActive=@IsActive where Id=@Id";
-            cmd = new SqlCommand(query, con);
-
-            if (con.State == System.Data.ConnectionState.Closed)
-            {
-                con.Open();
-            }
-
             try
             {
+                Id = Convert.ToInt32(txtId.Text);
+                Brand = cbBrand.Text;
+                Model = cbModel.Text;
+                SerialNumber = txtSerialNumber.Text;
+                ImeiNumber = txtImeiNumber.Text;
+                ProductionDate = Convert.ToDateTime(dtpProductionDate.Text);
+                PurchaseDate = Convert.ToDateTime(dtpPurchaseDate.Text);
+                PurchasePrice = Convert.ToDouble(txtPurchasePrice.Text);
+                SalePrice = Convert.ToDouble(txtSalePrice.Text);
+                Amount = Convert.ToInt32(txtAmount.Text);
+                Vat = Convert.ToInt16(txtVAT.Text);
+                Cpu = txtCPU.Text;
+                OS = txtOS.Text;
+                Memory = txtMemory.Text;
+                Resolution = txtResolution.Text;
+                Color = txtColor.Text;
+                Image = pictureBoxImage.ImageLocation;
+
+                con = new SqlConnection(general.connectionString);
+                query = "update Productions set Brand=@Brand, Model=@Model, SerialNumber=@SerialNumber, ImeiNumber=@ImeiNumber, ProductionDate=@ProductionDate, PurchaseDate=@PurchaseDate, PurchasePrice=@PurchasePrice, SalePrice=@SalePrice, Amount=@Amount, VAT=@VAT, CPU=@CPU, OS=@OS, Memory=@Memory, Resolution=@Resolution, Color=@Color, Image=@Image, CreatedDate=@CreatedDate, IsActive=@IsActive where Id=@Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
                 if (Brand != "" && Model != "" && SerialNumber != "" && ImeiNumber != "" && PurchasePrice != 0 && SalePrice != 0 && Image != "")
                 {
                     cmd.Parameters.AddWithValue("@Id", Id);
@@ -408,15 +408,49 @@ namespace PHONE_SALE
                 {
                     General._ShowCustomMyMessage("Eksik alanları doldurun", "Dikkat", General._MessageTip._info, General._MessageCategory._user);
                 }
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
+        }
 
-            if (con.State == System.Data.ConnectionState.Open)
+        //Ürün Silme Methodu
+        public void deleteProduction(TextBox txtId)
+        {
+            try
             {
-                con.Close();
+                Id = Convert.ToInt32(txtId.Text);
+
+                con = new SqlConnection(general.connectionString);
+                query = "delete from Productions where Id = @Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Ürün silinmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
         }
     }

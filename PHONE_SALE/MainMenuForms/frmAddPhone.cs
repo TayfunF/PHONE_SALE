@@ -21,7 +21,7 @@ namespace PHONE_SALE.MainMenuForms
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtSalePrice, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
+            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
         }
 
         //Kullanıcıdan Resim Dosyası Seçmesini istediğimiz zaman

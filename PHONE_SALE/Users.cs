@@ -132,11 +132,11 @@ namespace PHONE_SALE
         //Kullanıcı Girişi
         public void userEntry(TextBox tbUsername, TextBox tbPassword)
         {
-            Username = tbUsername.Text;
-            Password = tbPassword.Text;
-
             try
             {
+                Username = tbUsername.Text;
+                Password = tbPassword.Text;
+
                 if (Username != "" || Password != "")
                 {
                     query = "Select * from Users where Username = '" + Username + "' and Password = '" + Password + "' ";
@@ -180,15 +180,15 @@ namespace PHONE_SALE
         //Kullanıcı Ekleme Methodu
         public void addUserInSystem(TextBox txtUsername, TextBox txtPassword, TextBox txtFullName, TextBox txtPhoneNumber, TextBox txtEmail, TextBox txtAddress)
         {
-            Username = txtUsername.Text;
-            Password = txtPassword.Text;
-            FullName = txtFullName.Text;
-            PhoneNumber = txtPhoneNumber.Text;
-            Email = txtEmail.Text;
-            Address = txtAddress.Text;
-
             try
             {
+                Username = txtUsername.Text;
+                Password = txtPassword.Text;
+                FullName = txtFullName.Text;
+                PhoneNumber = txtPhoneNumber.Text;
+                Email = txtEmail.Text;
+                Address = txtAddress.Text;
+
                 if (Username != "" || Password != "" || FullName != "")
                 {
                     con = new SqlConnection(general.connectionString);
@@ -212,6 +212,13 @@ namespace PHONE_SALE
                     cmd.ExecuteNonQuery();
 
                     General._ShowCustomMyMessage("Kullanıcı sisteme eklendi", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                    txtFullName.Text = "";
+                    txtPhoneNumber.Text = "";
+                    txtEmail.Text = "";
+                    txtAddress.Text = "";
 
                     if (con.State == ConnectionState.Open)
                     {
