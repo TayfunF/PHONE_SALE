@@ -116,7 +116,7 @@
             // 
             this.ToolStripMenuItemAddPhone.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemAddPhone.Name = "ToolStripMenuItemAddPhone";
-            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(157, 22);
+            this.ToolStripMenuItemAddPhone.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemAddPhone.Text = "Telefon Ekle";
             this.ToolStripMenuItemAddPhone.Click += new System.EventHandler(this.ToolStripMenuItemAddPhone_Click);
             // 
@@ -125,7 +125,7 @@
             this.ToolStripMenuItemPhoneList.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemPhoneList.Name = "ToolStripMenuItemPhoneList";
             this.ToolStripMenuItemPhoneList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(157, 22);
+            this.ToolStripMenuItemPhoneList.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemPhoneList.Text = "Telefon Listesi";
             this.ToolStripMenuItemPhoneList.Click += new System.EventHandler(this.ToolStripMenuItemPhoneList_Click);
             // 
@@ -145,7 +145,7 @@
             // 
             this.ToolStripMenuItemmarkaEkle.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemmarkaEkle.Name = "ToolStripMenuItemmarkaEkle";
-            this.ToolStripMenuItemmarkaEkle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmarkaEkle.Size = new System.Drawing.Size(153, 22);
             this.ToolStripMenuItemmarkaEkle.Text = "Marka Ekle";
             this.ToolStripMenuItemmarkaEkle.Click += new System.EventHandler(this.ToolStripMenuItemmarkaEkle_Click);
             // 
@@ -153,22 +153,25 @@
             // 
             this.ToolStripMenuItemmarkaListesi.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemmarkaListesi.Name = "ToolStripMenuItemmarkaListesi";
-            this.ToolStripMenuItemmarkaListesi.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmarkaListesi.Size = new System.Drawing.Size(153, 22);
             this.ToolStripMenuItemmarkaListesi.Text = "Marka Listesi";
+            this.ToolStripMenuItemmarkaListesi.Click += new System.EventHandler(this.ToolStripMenuItemmarkaListesi_Click);
             // 
             // ToolStripMenuItemmodelEkle
             // 
             this.ToolStripMenuItemmodelEkle.Image = global::PHONE_SALE.Properties.Resources.plus;
             this.ToolStripMenuItemmodelEkle.Name = "ToolStripMenuItemmodelEkle";
-            this.ToolStripMenuItemmodelEkle.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmodelEkle.Size = new System.Drawing.Size(153, 22);
             this.ToolStripMenuItemmodelEkle.Text = "Model Ekle";
+            this.ToolStripMenuItemmodelEkle.Click += new System.EventHandler(this.ToolStripMenuItemmodelEkle_Click);
             // 
             // ToolStripMenuItemmodelListesi
             // 
             this.ToolStripMenuItemmodelListesi.Image = global::PHONE_SALE.Properties.Resources.order;
             this.ToolStripMenuItemmodelListesi.Name = "ToolStripMenuItemmodelListesi";
-            this.ToolStripMenuItemmodelListesi.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemmodelListesi.Size = new System.Drawing.Size(153, 22);
             this.ToolStripMenuItemmodelListesi.Text = "Model Listesi";
+            this.ToolStripMenuItemmodelListesi.Click += new System.EventHandler(this.ToolStripMenuItemmodelListesi_Click);
             // 
             // ToolStripMenuItemUser
             // 

@@ -22,5 +22,17 @@ namespace PHONE_SALE.Forms_List
             Brands brands = new Brands();
             brands.getBrandList(dataGridViewBrand);
         }
+
+        private void dataGridViewBrand_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmUpdateBrand frmUpdateBrand = new frmUpdateBrand();
+
+            if (dataGridViewBrand.Rows.Count > 0)
+            {
+                frmUpdateBrand.txtBrand.Text = dataGridViewBrand.CurrentRow.Cells[0].Value.ToString();
+            }
+
+            frmUpdateBrand.ShowDialog();
+        }
     }
 }

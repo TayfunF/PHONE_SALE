@@ -18,6 +18,7 @@ namespace PHONE_SALE
             InitializeComponent();
         }
 
+        //Telefon Ekleme Methodu
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();

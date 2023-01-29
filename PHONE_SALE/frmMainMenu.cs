@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PHONE_SALE.Forms_List;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,5 +76,13 @@ namespace PHONE_SALE
 
         //Marka Ekle Butonu
         private void ToolStripMenuItemmarkaEkle_Click(object sender, EventArgs e) => showAddTypeForm(new frmAddBrand());
+
+        //Marka Liste Butonu
+        private void ToolStripMenuItemmarkaListesi_Click(object sender, EventArgs e) => showListTypeForm(new frmBrandList());
+
+        //Model Ekle Butonu
+        private void ToolStripMenuItemmodelEkle_Click(object sender, EventArgs e) => showAddTypeForm(new frmAddModel());
+        //Model Liste Butonu
+        private void ToolStripMenuItemmodelListesi_Click(object sender, EventArgs e) => showListTypeForm(new frmModelList());
     }
 }

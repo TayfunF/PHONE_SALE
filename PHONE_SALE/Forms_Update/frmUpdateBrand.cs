@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace PHONE_SALE
 {
-    public partial class frmAddBrand : Form
+    public partial class frmUpdateBrand : Form
     {
-        public frmAddBrand()
+        public frmUpdateBrand()
         {
             InitializeComponent();
-        }
-
-        //Marka Ekleme Methodu
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Brands brands = new Brands();
-            brands.addBrand(txtBrand);
         }
     }
 }
