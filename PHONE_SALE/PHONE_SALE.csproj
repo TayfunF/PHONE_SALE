@@ -69,64 +69,64 @@
       <DependentUpon>frmMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\General.cs" />
-    <Compile Include="MainMenuForms\frmAddCustomer.cs">
+    <Compile Include="AddForms\frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmAddCustomer.Designer.cs">
+    <Compile Include="AddForms\frmAddCustomer.Designer.cs">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\frmAddPhone.cs">
+    <Compile Include="AddForms\frmAddPhone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForms\frmAddPhone.Designer.cs">
+    <Compile Include="AddForms\frmAddPhone.Designer.cs">
       <DependentUpon>frmAddPhone.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\frmAddUser.cs">
+    <Compile Include="AddForms\frmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForms\frmAddUser.Designer.cs">
+    <Compile Include="AddForms\frmAddUser.Designer.cs">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmCustomerList.cs">
+    <Compile Include="ListForms\frmCustomerList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmCustomerList.Designer.cs">
+    <Compile Include="ListForms\frmCustomerList.Designer.cs">
       <DependentUpon>frmCustomerList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmMainMenu.cs">
+    <Compile Include="frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmMainMenu.Designer.cs">
+    <Compile Include="frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmMakeSale.cs">
+    <Compile Include="ListForms\frmMakeSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmMakeSale.Designer.cs">
+    <Compile Include="ListForms\frmMakeSale.Designer.cs">
       <DependentUpon>frmMakeSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmPhoneList.cs">
+    <Compile Include="ListForms\frmPhoneList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmPhoneList.Designer.cs">
+    <Compile Include="ListForms\frmPhoneList.Designer.cs">
       <DependentUpon>frmPhoneList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmSaleList.cs">
+    <Compile Include="ListForms\frmSaleList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmSaleList.Designer.cs">
+    <Compile Include="ListForms\frmSaleList.Designer.cs">
       <DependentUpon>frmSaleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForms\frmUserList.cs">
+    <Compile Include="ListForms\frmUserList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForms\frmUserList.Designer.cs">
+    <Compile Include="ListForms\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForms\frmUpdatePhone.cs">
+    <Compile Include="AddForms\frmUpdatePhone.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForms\frmUpdatePhone.Designer.cs">
+    <Compile Include="AddForms\frmUpdatePhone.Designer.cs">
       <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </Compile>
     <Compile Include="MyClass\Productions.cs" />
@@ -139,34 +139,34 @@
     <EmbeddedResource Include="frmMessage.resx">
       <DependentUpon>frmMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmAddCustomer.resx">
+    <EmbeddedResource Include="AddForms\frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\frmAddPhone.resx">
+    <EmbeddedResource Include="AddForms\frmAddPhone.resx">
       <DependentUpon>frmAddPhone.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\frmAddUser.resx">
+    <EmbeddedResource Include="AddForms\frmAddUser.resx">
       <DependentUpon>frmAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmCustomerList.resx">
+    <EmbeddedResource Include="ListForms\frmCustomerList.resx">
       <DependentUpon>frmCustomerList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmMainMenu.resx">
+    <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmMakeSale.resx">
+    <EmbeddedResource Include="ListForms\frmMakeSale.resx">
       <DependentUpon>frmMakeSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmPhoneList.resx">
+    <EmbeddedResource Include="ListForms\frmPhoneList.resx">
       <DependentUpon>frmPhoneList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmSaleList.resx">
+    <EmbeddedResource Include="ListForms\frmSaleList.resx">
       <DependentUpon>frmSaleList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForms\frmUserList.resx">
+    <EmbeddedResource Include="ListForms\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForms\frmUpdatePhone.resx">
+    <EmbeddedResource Include="AddForms\frmUpdatePhone.resx">
       <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
