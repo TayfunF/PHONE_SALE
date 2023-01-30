@@ -185,6 +185,9 @@
     <EmbeddedResource Include="Forms_Update\frmUpdateBrand.resx">
       <DependentUpon>frmUpdateBrand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Update\frmUpdateModel.resx">
+      <DependentUpon>frmUpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>

@@ -156,9 +156,36 @@ namespace PHONE_SALE
         }
 
         //Marka Silme
-        public void deleteBrand()
+        public void deleteBrand(TextBox txtId)
         {
+            try
+            {
+                Id = Convert.ToInt32(txtId.Text);
 
+                con = new SqlConnection(general.connectionString);
+                query = "delete from Brand where Id = @Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Ürün silinmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
     }
 }

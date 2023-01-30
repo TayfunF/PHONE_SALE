@@ -1,4 +1,5 @@
-﻿using PHONE_SALE.MyClass;
+﻿using PHONE_SALE.Forms_Update;
+using PHONE_SALE.MyClass;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,9 +27,11 @@ namespace PHONE_SALE
 
         private void dataGridViewModel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            frmUpdateModel frmUpdateModel = new frmUpdateModel();
+
             if (dataGridViewModel.Rows.Count > 0)
             {
-
+                
             }
         }
     }

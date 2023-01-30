@@ -26,10 +26,27 @@ namespace PHONE_SALE
                 Brands brands = new Brands();
                 brands.updateBrand(txtId, txtBrand);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
 
-                throw;
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool messsage = General._ShowCustomMyMessage("Silmek istediğinize emin misiniz ?", "Uyarı", General._MessageTip._question, General._MessageCategory._systemQuestion);
+                if (messsage)
+                {
+                    Brands brands = new Brands();
+                    brands.deleteBrand(txtId);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
         }
     }

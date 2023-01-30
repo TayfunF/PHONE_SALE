@@ -29,7 +29,8 @@ namespace PHONE_SALE.Forms_List
 
             if (dataGridViewBrand.Rows.Count > 0)
             {
-                frmUpdateBrand.txtBrand.Text = dataGridViewBrand.CurrentRow.Cells[0].Value.ToString();
+                frmUpdateBrand.txtId.Text = dataGridViewBrand.CurrentRow.Cells[0].Value.ToString();
+                frmUpdateBrand.txtBrand.Text = dataGridViewBrand.CurrentRow.Cells[1].Value.ToString();
             }
 
             frmUpdateBrand.ShowDialog();

@@ -72,7 +72,6 @@ namespace PHONE_SALE
             try
             {
                 bool messsage = General._ShowCustomMyMessage("Silmek istediğinize emin misiniz ?", "Uyarı", General._MessageTip._question, General._MessageCategory._systemQuestion);
-
                 if (messsage)
                 {
                     Productions productions = new Productions();

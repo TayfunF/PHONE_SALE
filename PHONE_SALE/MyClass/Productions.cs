@@ -433,7 +433,6 @@ namespace PHONE_SALE
                     con.Open();
                 }
 
-
                 cmd.Parameters.AddWithValue("@Id", Id);
 
                 cmd.ExecuteNonQuery();
