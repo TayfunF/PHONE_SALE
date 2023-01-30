@@ -122,9 +122,37 @@ namespace PHONE_SALE
         }
 
         //Marka Güncelleme
-        public void updateBrand()
+        public void updateBrand(TextBox txtId, TextBox txtBrand)
         {
+            try
+            {
+                Id = Convert.ToInt32(txtId.Text);
+                Brand = txtBrand.Text;
 
+                con = new SqlConnection(general.connectionString);
+                query = "Update Brand set Brand=@Brand where Id=@Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Brand", Brand);
+
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Marka güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
 
         //Marka Silme

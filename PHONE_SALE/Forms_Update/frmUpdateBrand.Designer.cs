@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateBrand));
             this.label1 = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,23 +58,57 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(123, 84);
+            this.btnUpdate.BackColor = System.Drawing.Color.Green;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.ImageKey = "check.png";
+            this.btnUpdate.ImageList = this.ımageList1;
+            this.btnUpdate.Location = new System.Drawing.Point(103, 66);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "button1";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Size = new System.Drawing.Size(109, 48);
+            this.btnUpdate.TabIndex = 88;
+            this.btnUpdate.Text = "Güncelle";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "check.png");
+            // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtId.Location = new System.Drawing.Point(60, 2);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(34, 26);
+            this.txtId.TabIndex = 90;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblId.Location = new System.Drawing.Point(19, 5);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(35, 20);
+            this.lblId.TabIndex = 89;
+            this.lblId.Text = "Id : ";
             // 
             // frmUpdateBrand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 140);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.label1);
             this.Name = "frmUpdateBrand";
-            this.Text = "frmUpdateBrand";
+            this.Text = "Marka Güncelle";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,5 +119,8 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtBrand;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ImageList ımageList1;
+        public System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
     }
 }

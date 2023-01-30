@@ -15,6 +15,22 @@ namespace PHONE_SALE
         public frmUpdateBrand()
         {
             InitializeComponent();
+            lblId.Visible = false;
+            txtId.Visible = false;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Brands brands = new Brands();
+                brands.updateBrand(txtId, txtBrand);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

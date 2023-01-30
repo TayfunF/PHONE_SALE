@@ -62,9 +62,33 @@ namespace PHONE_SALE.MyClass
         DataTable dt = null;
         SqlDataAdapter da = null;
 
-        public void getModelList()
+        //Model Listeleme
+        public void getModelList(DataGridView dataGridView)
         {
+            try
+            {
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from v_getBrandModelList";
+                da = new SqlDataAdapter(query, con);
 
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                dt = new DataTable();
+                da.Fill(dt);
+                dataGridView.DataSource = dt;
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
 
         //Model Ekleme methodu

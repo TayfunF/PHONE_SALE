@@ -59,6 +59,7 @@
             this.dataGridViewModel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewModel.Size = new System.Drawing.Size(800, 450);
             this.dataGridViewModel.TabIndex = 2;
+            this.dataGridViewModel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewModel_CellContentClick);
             // 
             // frmModelList
             // 
@@ -68,6 +69,7 @@
             this.Controls.Add(this.dataGridViewModel);
             this.Name = "frmModelList";
             this.Text = "frmModelList";
+            this.Load += new System.EventHandler(this.frmModelList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModel)).EndInit();
             this.ResumeLayout(false);
 
