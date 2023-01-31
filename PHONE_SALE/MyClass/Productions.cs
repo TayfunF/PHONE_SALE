@@ -458,17 +458,28 @@ namespace PHONE_SALE
             try
             {
                 state = true;
-                SerialNumber = txtImeiNumber.Text;
+                SerialNumber = txtSerialNumber.Text;
                 ImeiNumber = txtImeiNumber.Text;
 
                 con = new SqlConnection(general.connectionString);
                 query = "Select * from Productions";
                 cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
                 dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                     if (dr["SerialNumber"].ToString() == SerialNumber || dr["ImeiNumber"].ToString() == ImeiNumber)
                         state = false;
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
             }
             catch (Exception ex)
             {
