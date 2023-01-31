@@ -22,7 +22,10 @@ namespace PHONE_SALE
         private void btnSave_Click(object sender, EventArgs e)
         {
             Productions productions = new Productions();
-            productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
+            bool isNotRegistered = productions.alreadyRegistered(txtSerialNumber, txtImeiNumber);
+            if (isNotRegistered)
+                productions.addProduction(cbBrand, cbModel, txtSerialNumber, txtImeiNumber, dtpProductionDate, dtpPurchaseDate, txtPurchasePrice, txtSalePrice, txtAmount, txtVat, txtCPU, txtOS, txtMemory, txtResolution, txtColor, pictureBoxImage);
+            else General._ShowCustomMyMessage("Seri no ve/veya imei no daha önceden kaydedilmiş !", "Uyarı", General._MessageTip._warning, General._MessageCategory._information);
         }
 
         //Kullanıcıdan Resim Dosyası Seçmesini istediğimiz zaman

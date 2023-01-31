@@ -230,6 +230,7 @@ namespace PHONE_SALE
         SqlCommand cmd = null;
         DataTable dt = null;
         SqlDataAdapter da = null;
+        SqlDataReader dr = null;
 
         //Ürün Ekleme Methodu
         public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVat, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
@@ -297,7 +298,7 @@ namespace PHONE_SALE
                     txtMemory.Text = "";
                     txtResolution.Text = ""; ;
                     txtColor.Text = "";
-                    pictureBoxImage.Image = null;                    
+                    pictureBoxImage.Image = null;
                 }
                 else
                 {
@@ -448,6 +449,33 @@ namespace PHONE_SALE
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
+        }
+
+        //Seri ya da Imei No varsa kaydetme kontrolü
+        public bool state;
+        public bool alreadyRegistered(TextBox txtSerialNumber, TextBox txtImeiNumber)
+        {
+            try
+            {
+                state = true;
+                SerialNumber = txtImeiNumber.Text;
+                ImeiNumber = txtImeiNumber.Text;
+
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from Productions";
+                cmd = new SqlCommand(query, con);
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                    if (dr["SerialNumber"].ToString() == SerialNumber || dr["ImeiNumber"].ToString() == ImeiNumber)
+                        state = false;
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+
+            return state;
         }
     }
 }
