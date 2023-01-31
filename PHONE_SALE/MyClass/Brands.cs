@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Schema;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Messaging;
 
 namespace PHONE_SALE
 {
@@ -50,6 +51,7 @@ namespace PHONE_SALE
         SqlCommand cmd = null;
         DataTable dt = null;
         SqlDataAdapter da = null;
+        SqlDataReader dr = null;
 
         //Marka Listeleme
         public void getBrandList(DataGridView dataGridView)
@@ -186,6 +188,42 @@ namespace PHONE_SALE
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
+        }
+
+        //Marka kayıtlı mı kontrolü
+        public bool state;
+        public bool alreadyRegistered(TextBox textBrand)
+        {
+            try
+            {
+                state = true;
+                Brand = textBrand.Text;
+
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from Brand";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                    if (dr["Brand"].ToString() == Brand || dr["Brand"].ToString() == null)
+                        state = false;
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+            return false;
         }
     }
 }
