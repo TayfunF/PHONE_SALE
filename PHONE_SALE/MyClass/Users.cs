@@ -127,6 +127,7 @@ namespace PHONE_SALE
         SqlCommand cmd = null;
         DataTable dt = null;
         SqlDataAdapter da = null;
+        SqlDataReader dr = null;
 
         //Kullanıcı Girişi
         public void userEntry(TextBox tbUsername, TextBox tbPassword)
@@ -263,6 +264,42 @@ namespace PHONE_SALE
             {
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
+        }
+
+        //Kullanıcı kayıtlı mı kontrolü
+        public bool state;
+        public bool alreadyRegisteredUser(TextBox txtUsername)
+        {
+            try
+            {
+                state = true;
+                Username = txtUsername.Text;
+
+                con = new SqlConnection(general.connectionString);
+                query = "Select * from Users";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                    if (dr["Username"].ToString() == Username || dr["Username"].ToString() == null)
+                        state = false;
+
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+            return false;
         }
     }
 }

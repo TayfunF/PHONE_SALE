@@ -192,7 +192,7 @@ namespace PHONE_SALE
 
         //Marka kayıtlı mı kontrolü
         public bool state;
-        public bool alreadyRegistered(TextBox textBrand)
+        public bool alreadyRegisteredBrand(TextBox textBrand)
         {
             try
             {

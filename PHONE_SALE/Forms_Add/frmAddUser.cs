@@ -22,7 +22,10 @@ namespace PHONE_SALE
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Users users = new Users();
-            users.addUserInSystem(txtUsername, txtPassword, txtFullName, txtPhoneNumber, txtEmail, txtAddress);           
+            bool isNoRegistered = users.alreadyRegisteredUser(txtUsername);
+            if (isNoRegistered)
+                users.addUserInSystem(txtUsername, txtPassword, txtFullName, txtPhoneNumber, txtEmail, txtAddress);
+            else General._ShowCustomMyMessage("Kullanıcı zaten sisteme kayıtlı !", "Uyarı", General._MessageTip._warning, General._MessageCategory._information);
         }
 
         //PhoneNumber Sadece Rakam girebilme kontrolü

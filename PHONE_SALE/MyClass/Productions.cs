@@ -453,7 +453,7 @@ namespace PHONE_SALE
 
         //Seri ya da Imei No varsa kaydetme kontrolü
         public bool state;
-        public bool alreadyRegistered(TextBox txtSerialNumber, TextBox txtImeiNumber)
+        public bool alreadyRegisteredProduction(TextBox txtSerialNumber, TextBox txtImeiNumber)
         {
             try
             {
