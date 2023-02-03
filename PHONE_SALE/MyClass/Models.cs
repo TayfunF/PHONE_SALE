@@ -142,6 +142,7 @@ namespace PHONE_SALE.MyClass
             }
         }
 
+        //Model Güncelleme methodu
         public void updateModel(Label lblId, TextBox txtModel)
         {
             try
