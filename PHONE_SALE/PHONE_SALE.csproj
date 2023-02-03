@@ -83,6 +83,12 @@
     <Compile Include="Forms_Update\frmUpdateModel.Designer.cs">
       <DependentUpon>frmUpdateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms_Update\frmUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_Update\frmUpdateUser.Designer.cs">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyClass\Brands.cs" />
     <Compile Include="Brand_Model_DataSet.cs">
       <DependentUpon>Brand_Model_DataSet.xsd</DependentUpon>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Update\frmUpdateModel.resx">
       <DependentUpon>frmUpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Update\frmUpdateUser.resx">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -28,7 +28,7 @@ namespace PHONE_SALE.Forms_Update
 
         }
 
-        //Telefon Güncelleme butonu
+        //Model Güncelleme butonu
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -42,6 +42,7 @@ namespace PHONE_SALE.Forms_Update
             }
         }
 
+        //Model Silme methodu
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try

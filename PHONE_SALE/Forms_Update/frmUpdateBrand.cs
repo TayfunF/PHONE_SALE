@@ -19,6 +19,7 @@ namespace PHONE_SALE
             txtId.Visible = false;
         }
 
+        //Marka Güncelleme methodu
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -32,6 +33,7 @@ namespace PHONE_SALE
             }
         }
 
+        //Marka Silme methodu
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try

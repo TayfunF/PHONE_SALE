@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PHONE_SALE.Forms_Update;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,24 @@ namespace PHONE_SALE
 
         private void dataGridViewUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                frmUpdateUser frmUpdateUser = new frmUpdateUser();
 
+                if (dataGridViewUsers.Rows.Count > 0)
+                {
+                    frmUpdateUser.lblId.Text = dataGridViewUsers.CurrentRow.Cells["Id"].Value.ToString();
+                    frmUpdateUser.txtUsername.Text = dataGridViewUsers.CurrentRow.Cells["KullanıcıAdı"].Value.ToString();
+                    frmUpdateUser.txtPassword.Text = dataGridViewUsers.CurrentRow.Cells["Şifre"].Value.ToString();
+                    frmUpdateUser.cboxIsActive.Checked = Convert.ToBoolean(dataGridViewUsers.CurrentRow.Cells["AktifMi"].Value.ToString());
+                }
+
+                frmUpdateUser.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
     }
 }

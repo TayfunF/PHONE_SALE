@@ -13,6 +13,7 @@ namespace PHONE_SALE
     class Users
     {
         #region Fields
+        private int _id;
         private string _username;
         private string _password;
         private string _fullName;
@@ -24,6 +25,18 @@ namespace PHONE_SALE
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+
         public string Username
         {
             get
@@ -254,6 +267,44 @@ namespace PHONE_SALE
                 da.Fill(dt);
 
                 dataGridView.DataSource = dt;
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
+
+        //Kullanıcı Güncelle Methodu
+        public void updateUsernameAndPassword(Label lblId,TextBox txtUsername,TextBox txtPassword, CheckBox cboxIsActive)
+        {
+            try
+            {
+                Id = Convert.ToInt32(lblId.Text);
+                Username = txtUsername.Text;
+                Password = txtPassword.Text;
+                IsActive = cboxIsActive.Checked;
+
+                con = new SqlConnection(general.connectionString);
+                query = "Update Users set Username=@Username, Password=@Password, IsActive=@IsActive where Id=@Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Username", Username);
+                cmd.Parameters.AddWithValue("@Password", Password);
+                cmd.Parameters.AddWithValue("@IsActive", IsActive);
+
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Kullanıcı güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
 
                 if (con.State == ConnectionState.Open)
                 {
