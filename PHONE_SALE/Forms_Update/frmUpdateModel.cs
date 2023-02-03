@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PHONE_SALE.MyClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace PHONE_SALE.Forms_Update
         public frmUpdateModel()
         {
             InitializeComponent();
+            lblId.Visible = false;
         }
 
         private void frmUpdateModel_Load(object sender, EventArgs e)
@@ -24,6 +26,20 @@ namespace PHONE_SALE.Forms_Update
             // TODO: This line of code loads data into the 'brand_Model_DataSet.Brand' table. You can move, or remove it, as needed.
             this.brandTableAdapter.Fill(this.brand_Model_DataSet.Brand);
 
+        }
+
+        //Telefon Güncelleme butonu
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Models models = new Models();
+                models.updateModel(lblId, txtModel);
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
     }
 }

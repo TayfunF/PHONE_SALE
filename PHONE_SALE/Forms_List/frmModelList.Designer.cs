@@ -59,7 +59,7 @@
             this.dataGridViewModel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewModel.Size = new System.Drawing.Size(800, 450);
             this.dataGridViewModel.TabIndex = 2;
-            this.dataGridViewModel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewModel_CellContentClick);
+            this.dataGridViewModel.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewModel_CellDoubleClick);
             // 
             // frmModelList
             // 

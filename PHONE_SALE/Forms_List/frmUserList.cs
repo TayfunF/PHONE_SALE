@@ -22,5 +22,10 @@ namespace PHONE_SALE
             Users users = new Users();
             users.getUserList(dataGridViewUsers);
         }
+
+        private void dataGridViewUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

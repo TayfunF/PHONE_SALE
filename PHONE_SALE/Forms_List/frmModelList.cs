@@ -25,14 +25,17 @@ namespace PHONE_SALE
             models.getModelList(dataGridViewModel);
         }
 
-        private void dataGridViewModel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewModel_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmUpdateModel frmUpdateModel = new frmUpdateModel();
 
             if (dataGridViewModel.Rows.Count > 0)
             {
-                
+                frmUpdateModel.lblId.Text = dataGridViewModel.CurrentRow.Cells["ModelId"].Value.ToString();
+                frmUpdateModel.txtModel.Text = dataGridViewModel.CurrentRow.Cells["Model"].Value.ToString();
             }
+
+            frmUpdateModel.ShowDialog();
         }
     }
 }

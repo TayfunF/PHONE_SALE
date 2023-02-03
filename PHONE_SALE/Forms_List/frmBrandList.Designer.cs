@@ -59,7 +59,7 @@
             this.dataGridViewBrand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBrand.Size = new System.Drawing.Size(800, 450);
             this.dataGridViewBrand.TabIndex = 1;
-            this.dataGridViewBrand.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBrand_CellContentDoubleClick);
+            this.dataGridViewBrand.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBrand_CellDoubleClick);
             // 
             // frmBrandList
             // 

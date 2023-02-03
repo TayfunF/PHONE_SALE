@@ -23,7 +23,7 @@ namespace PHONE_SALE.Forms_List
             brands.getBrandList(dataGridViewBrand);
         }
 
-        private void dataGridViewBrand_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewBrand_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmUpdateBrand frmUpdateBrand = new frmUpdateBrand();
 

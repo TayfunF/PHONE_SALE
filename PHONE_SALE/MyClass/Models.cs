@@ -15,6 +15,7 @@ namespace PHONE_SALE.MyClass
         private static int _id;
         private static string _model;
         private static int _brandId;
+        private static string _brand;
         #endregion
 
         #region Properties
@@ -51,6 +52,18 @@ namespace PHONE_SALE.MyClass
             set
             {
                 _brandId = value;
+            }
+        }
+
+        public string Brand
+        {
+            get
+            {
+                return _brand;
+            }
+            set
+            {
+                _brand = value;
             }
         }
         #endregion
@@ -129,9 +142,37 @@ namespace PHONE_SALE.MyClass
             }
         }
 
-        public void updateModel()
+        public void updateModel(Label lblId, TextBox txtModel)
         {
+            try
+            {
+                Id = Convert.ToInt32(lblId.Text);
+                Model = txtModel.Text;
 
+                con = new SqlConnection(general.connectionString);
+                query = "Update Model set Model=@Model where Id=@Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Model", Model);
+
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Model güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
 
         public void deleteModel()
