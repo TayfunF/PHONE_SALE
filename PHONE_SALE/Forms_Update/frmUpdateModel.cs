@@ -41,5 +41,23 @@ namespace PHONE_SALE.Forms_Update
                 General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool messsage = General._ShowCustomMyMessage("Silmek istediğinize emin misiniz ?", "Uyarı", General._MessageTip._question, General._MessageCategory._systemQuestion);
+                if (messsage)
+                {
+                    Models model = new Models();
+                    model.deleteModel(lblId);
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
+        }
     }
 }

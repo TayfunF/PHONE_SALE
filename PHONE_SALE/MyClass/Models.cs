@@ -176,9 +176,35 @@ namespace PHONE_SALE.MyClass
             }
         }
 
-        public void deleteModel()
+        //Model Silme  methodu
+        public void deleteModel(Label lblId)
         {
+            try
+            {
+                Id = Convert.ToInt32(lblId.Text);
 
+                con = new SqlConnection(general.connectionString);
+                query = "delete from Model where Id=@Id";
+                cmd = new SqlCommand(query, con);
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+                General._ShowCustomMyMessage("Model silinmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+            }
         }
     }
 }
