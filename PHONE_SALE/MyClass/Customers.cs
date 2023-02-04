@@ -5,18 +5,19 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Schema;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Windows.Forms;
-using System.Runtime.Remoting.Messaging;
 
 namespace PHONE_SALE
 {
-    internal class Brands
+    internal class Customers
     {
         #region Fields
         private int _id;
-        private string _brand;
+        private string _fullName;
+        private string _phoneNumber;
+        private string _email;
+        private string _address;
+        private bool _isActive;
         #endregion
 
         #region Properties
@@ -32,15 +33,63 @@ namespace PHONE_SALE
             }
         }
 
-        public string Brand
+        public string FullName
         {
             get
             {
-                return _brand;
+                return _fullName;
             }
             set
             {
-                _brand = value;
+                _fullName = value;
+            }
+        }
+
+        public string PhoneNumber
+        {
+            get
+            {
+                return _phoneNumber;
+            }
+            set
+            {
+                _phoneNumber = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                _email = value;
+            }
+        }
+
+        public string Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                _address = value;
+            }
+        }
+
+        public bool IsActive
+        {
+            get
+            {
+                return _isActive;
+            }
+            set
+            {
+                _isActive = value;
             }
         }
         #endregion
@@ -53,13 +102,13 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
         SqlDataReader dr = null;
 
-        //Marka Listeleme
-        public void getBrandList(DataGridView dataGridView)
+        //Müşteri Listeleme Methodu
+        public void getCustomerList(DataGridView dataGridView)
         {
             try
             {
                 con = new SqlConnection(general.connectionString);
-                query = "Select * from vw_getBrandList";
+                query = "Select * from vw_getCustomerList";
                 da = new SqlDataAdapter(query, con);
 
                 if (con.State == ConnectionState.Closed)
@@ -82,15 +131,18 @@ namespace PHONE_SALE
             }
         }
 
-        //Marka Ekleme
-        public void addBrand(TextBox txtBrand)
+        //Müşteri Ekleme Methodu
+        public void addCustomer(TextBox txtFullName, MaskedTextBox maskedPhoneNumber, TextBox txtEmail, TextBox txtAddress)
         {
             try
             {
-                Brand = txtBrand.Text;
+                FullName = txtFullName.Text;
+                PhoneNumber = maskedPhoneNumber.Text;
+                Email = txtEmail.Text;
+                Address = txtAddress.Text;
 
                 con = new SqlConnection(general.connectionString);
-                query = "insert into Brand values (@Brand)";
+                query = "insert into Customer values (@FullName,@PhoneNumber,@Email,@Address,@IsActive)";
                 cmd = new SqlCommand(query, con);
 
                 if (con.State == ConnectionState.Closed)
@@ -98,14 +150,21 @@ namespace PHONE_SALE
                     con.Open();
                 }
 
-                if (Brand != "")
+                if (FullName != "" || PhoneNumber != "" || Email != "" || Address != "")
                 {
-                    cmd.Parameters.AddWithValue("@Brand", Brand);
+                    cmd.Parameters.AddWithValue("@FullName", FullName);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Address", Address);
+                    cmd.Parameters.AddWithValue("@IsActive", true);
 
                     cmd.ExecuteNonQuery();
-                    General._ShowCustomMyMessage("Marka eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                    General._ShowCustomMyMessage("Müşteri eklenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
 
-                    txtBrand.Text = "";
+                    txtFullName.Text = "";
+                    maskedPhoneNumber.Text = "";
+                    txtEmail.Text = "";
+                    txtAddress.Text = "";
                 }
                 else
                 {
@@ -123,16 +182,20 @@ namespace PHONE_SALE
             }
         }
 
-        //Marka Güncelleme
-        public void updateBrand(TextBox txtId, TextBox txtBrand)
+        //Müşteri Güncelleme Methodu
+        public void updateCustomer(Label lblId, TextBox txtFullName, MaskedTextBox maskedPhoneNumber, TextBox txtEmail, TextBox txtAddress, CheckBox cboxIsActive)
         {
             try
             {
-                Id = Convert.ToInt32(txtId.Text);
-                Brand = txtBrand.Text;
+                Id = Convert.ToInt32(lblId.Text);
+                FullName = txtFullName.Text;
+                PhoneNumber = maskedPhoneNumber.Text;
+                Email = txtEmail.Text;
+                Address = txtAddress.Text;
+                IsActive = cboxIsActive.Checked;
 
                 con = new SqlConnection(general.connectionString);
-                query = "Update Brand set Brand=@Brand where Id=@Id";
+                query = "Update Customer set FullName=@FullName, PhoneNumber=@PhoneNumber, Email=@Email, Address=@Address where Id=@Id";
                 cmd = new SqlCommand(query, con);
 
                 if (con.State == ConnectionState.Closed)
@@ -140,11 +203,14 @@ namespace PHONE_SALE
                     con.Open();
                 }
 
-                cmd.Parameters.AddWithValue("@Id", Id);
-                cmd.Parameters.AddWithValue("@Brand", Brand);
+                cmd.Parameters.AddWithValue("@FullName", FullName);
+                cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+                cmd.Parameters.AddWithValue("@Email", Email);
+                cmd.Parameters.AddWithValue("@Address", Address);
+                cmd.Parameters.AddWithValue("@IsActive", IsActive);
 
                 cmd.ExecuteNonQuery();
-                General._ShowCustomMyMessage("Marka güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
+                General._ShowCustomMyMessage("Müşteri güncellenmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
 
                 if (con.State == ConnectionState.Open)
                 {
@@ -157,50 +223,17 @@ namespace PHONE_SALE
             }
         }
 
-        //Marka Silme
-        public void deleteBrand(TextBox txtId)
-        {
-            try
-            {
-                Id = Convert.ToInt32(txtId.Text);
-
-                con = new SqlConnection(general.connectionString);
-                query = "delete from Brand where Id = @Id";
-                cmd = new SqlCommand(query, con);
-
-                if (con.State == System.Data.ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                cmd.Parameters.AddWithValue("@Id", Id);
-
-                cmd.ExecuteNonQuery();
-                General._ShowCustomMyMessage("Ürün silinmiştir.", "Başarılı", General._MessageTip._info, General._MessageCategory._information);
-
-                if (con.State == System.Data.ConnectionState.Open)
-                {
-                    con.Close();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
-            }
-        }
-
-        //Marka kayıtlı mı kontrolü
+        //Müştesi kayıtlı mı kontrolü
         public bool state;
-        public bool alreadyRegisteredBrand(TextBox textBrand)
+        public bool alreadyRegisteredCustomer(TextBox txtEmail)
         {
             try
             {
                 state = true;
-                Brand = textBrand.Text;
+                Email = txtEmail.Text;
 
                 con = new SqlConnection(general.connectionString);
-                query = "Select * from Brand";
+                query = "Select * from Customer";
                 cmd = new SqlCommand(query, con);
 
                 if (con.State == System.Data.ConnectionState.Closed)
@@ -211,7 +244,7 @@ namespace PHONE_SALE
                 dr = cmd.ExecuteReader();
 
                 while (dr.Read())
-                    if (dr["Brand"].ToString() == Brand || dr["Brand"].ToString() == null)
+                    if (dr["Email"].ToString() == Email || dr["Email"].ToString() == null)
                         state = false;
 
                 if (con.State == System.Data.ConnectionState.Open)

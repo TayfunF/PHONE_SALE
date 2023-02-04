@@ -255,7 +255,7 @@ namespace PHONE_SALE
             try
             {
                 con = new SqlConnection(general.connectionString);
-                query = "Select * from v_getUserList";
+                query = "Select * from vw_getUserList";
                 da = new SqlDataAdapter(query, con);
 
                 if (con.State == ConnectionState.Closed)

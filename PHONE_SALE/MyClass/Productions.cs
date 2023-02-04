@@ -322,7 +322,7 @@ namespace PHONE_SALE
             try
             {
                 con = new SqlConnection(general.connectionString);
-                query = "Select * from v_getProductionList";
+                query = "Select * from vw_getProductionList";
                 da = new SqlDataAdapter(query, con);
 
                 if (con.State == ConnectionState.Closed)

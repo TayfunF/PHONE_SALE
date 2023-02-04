@@ -81,7 +81,7 @@ namespace PHONE_SALE.MyClass
             try
             {
                 con = new SqlConnection(general.connectionString);
-                query = "Select * from v_getBrandModelList";
+                query = "Select * from vw_getBrandModelList";
                 da = new SqlDataAdapter(query, con);
 
                 if (con.State == ConnectionState.Closed)

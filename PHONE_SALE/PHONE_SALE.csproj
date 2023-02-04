@@ -171,6 +171,7 @@
     <Compile Include="Forms_Update\frmUpdatePhone.Designer.cs">
       <DependentUpon>frmUpdatePhone.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyClass\Customers.cs" />
     <Compile Include="MyClass\Models.cs" />
     <Compile Include="MyClass\Productions.cs" />
     <Compile Include="Program.cs" />
