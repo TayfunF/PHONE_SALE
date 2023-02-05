@@ -54,33 +54,33 @@ namespace PHONE_SALE
         SqlDataReader dr = null;
 
         //Marka Listeleme
-        public void getBrandList(DataGridView dataGridView)
-        {
-            try
-            {
-                con = new SqlConnection(general.connectionString);
-                query = "Select * from vw_getBrandList";
-                da = new SqlDataAdapter(query, con);
+        //public void getBrandList(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(general.connectionString);
+        //        query = "Select * from vw_getBrandList";
+        //        da = new SqlDataAdapter(query, con);
 
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
+        //        if (con.State == ConnectionState.Closed)
+        //        {
+        //            con.Open();
+        //        }
 
-                dt = new DataTable();
-                da.Fill(dt);
-                dataGridView.DataSource = dt;
+        //        dt = new DataTable();
+        //        da.Fill(dt);
+        //        dataGridView.DataSource = dt;
 
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
-            }
-        }
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+        //    }
+        //}
 
         //Marka Ekleme
         public void addBrand(TextBox txtBrand)
@@ -119,7 +119,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -153,7 +153,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -186,7 +186,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -221,8 +221,9 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
+
             return false;
         }
     }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,13 +13,17 @@ namespace PHONE_SALE
 {
     public class General
     {
+        SqlConnection con;
+        SqlDataAdapter da;
+        DataTable dt;
+
         public string connectionString = "Data Source=DESKTOP-9PD212P\\SQLEXPRESS;Initial Catalog=PHONE_SALE;Integrated Security=True";
         public static int _personelUserId;  //Her yeden erişebilmek için static yaptım
         public static int _personelGorevId; //Her yeden erişebilmek için static yaptım
         public static string _soyad;        //Her yeden erişebilmek için static yaptım
         public static string _ad;           //Her yeden erişebilmek için static yaptım
         public static string _kullaniciAdi; //Her yeden erişebilmek için static yaptım
-       
+
         #region MESAJKUTUSU_KODLARIM
         public enum _MessageTip
         {
@@ -119,7 +126,37 @@ namespace PHONE_SALE
         }
         #endregion
 
+        //Ortak Verileri Listeleme Metodu
+        public DataTable getList(DataGridView dataGridView, string query)
+        {
+            try
+            {
+                con = new SqlConnection(connectionString);
+                da = new SqlDataAdapter(query, con);
+                dt = new DataTable();
 
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                da.Fill(dt);
+                dataGridView.DataSource = dt;
+
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+            catch (Exception ex)
+            {
+                General._MyCustomErrorMessage(ex);
+            }
+
+            return dt;
+        }
+
+        //Ortak Hata Mesajları Methodu
+        public static void _MyCustomErrorMessage(Exception ex)
+        {
+            General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+        }
 
         //Çıkış mesajı göstermek için
         public static void _CustomExitMessage()

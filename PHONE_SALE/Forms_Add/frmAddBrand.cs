@@ -12,6 +12,8 @@ namespace PHONE_SALE
 {
     public partial class frmAddBrand : Form
     {
+        Brands brands;
+
         public frmAddBrand()
         {
             InitializeComponent();
@@ -20,11 +22,18 @@ namespace PHONE_SALE
         //Marka Ekleme Methodu
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Brands brands = new Brands();
-            bool isNotRegistered = brands.alreadyRegisteredBrand(txtBrand);
-            if (isNotRegistered)
-            brands.addBrand(txtBrand);
-            else General._ShowCustomMyMessage("Marka zaten sisteme kayıtlı !", "Uyarı", General._MessageTip._warning, General._MessageCategory._information);
+            try
+            {
+                brands = new Brands();
+                bool isNotRegistered = brands.alreadyRegisteredBrand(txtBrand);
+                if (isNotRegistered)
+                    brands.addBrand(txtBrand);
+                else General._ShowCustomMyMessage("Marka zaten sisteme kayıtlı !", "Uyarı", General._MessageTip._warning, General._MessageCategory._information);
+            }
+            catch (Exception ex)
+            {
+                General._MyCustomErrorMessage(ex);
+            }
         }
     }
 }

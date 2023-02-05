@@ -1,5 +1,6 @@
 ﻿using PHONE_SALE.Forms_Update;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace PHONE_SALE
 {
     public partial class frmUserList : Form
     {
+        General general;
+
         public frmUserList()
         {
             InitializeComponent();
@@ -20,8 +23,15 @@ namespace PHONE_SALE
 
         private void frmUserList_Load(object sender, EventArgs e)
         {
-            Users users = new Users();
-            users.getUserList(dataGridViewUsers);
+            try
+            {
+                general = new General();
+                general.getList(dataGridViewUsers, "Select * from vw_getUserList");
+            }
+            catch (Exception ex)
+            {
+                General._MyCustomErrorMessage(ex);
+            }
         }
 
         private void dataGridViewUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

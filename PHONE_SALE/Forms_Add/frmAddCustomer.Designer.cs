@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.maskedtxtPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textEmail = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -90,14 +90,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "E-Posta : ";
             // 
-            // textEmail
+            // txtEmail
             // 
-            this.textEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textEmail.Location = new System.Drawing.Point(110, 119);
-            this.textEmail.MaxLength = 50;
-            this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(226, 26);
-            this.textEmail.TabIndex = 5;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtEmail.Location = new System.Drawing.Point(110, 119);
+            this.txtEmail.MaxLength = 50;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(226, 26);
+            this.txtEmail.TabIndex = 5;
             // 
             // label4
             // 
@@ -148,7 +148,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textEmail);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.maskedtxtPhoneNumber);
             this.Controls.Add(this.label2);
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedtxtPhoneNumber;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textEmail;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnSave;

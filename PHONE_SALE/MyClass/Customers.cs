@@ -127,7 +127,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -178,7 +178,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -219,7 +219,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -254,8 +254,9 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
+
             return false;
         }
     }

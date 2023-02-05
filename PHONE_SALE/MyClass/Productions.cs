@@ -232,6 +232,37 @@ namespace PHONE_SALE
         SqlDataAdapter da = null;
         SqlDataReader dr = null;
 
+        //Ürün Listeleme Methodu
+        //public void getProductionList(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(general.connectionString);
+        //        query = "Select * from vw_getProductionList";
+        //        da = new SqlDataAdapter(query, con);
+
+        //        if (con.State == ConnectionState.Closed)
+        //        {
+        //            con.Open();
+        //        }
+
+        //        dt = new DataTable();
+        //        da.Fill(dt);
+        //        dataGridView.DataSource = dt;
+
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+        //    }
+        //}
+
+        //Ürün Güncelleme Methodu
+
         //Ürün Ekleme Methodu
         public void addProduction(ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVat, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
@@ -312,40 +343,10 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
-        //Ürün Listeleme Methodu
-        public void getProductionList(DataGridView dataGridView)
-        {
-            try
-            {
-                con = new SqlConnection(general.connectionString);
-                query = "Select * from vw_getProductionList";
-                da = new SqlDataAdapter(query, con);
-
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                dt = new DataTable();
-                da.Fill(dt);
-                dataGridView.DataSource = dt;
-
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
-            }
-        }
-
-        //Ürün Güncelleme Methodu
         public void updateProduction(TextBox txtId, ComboBox cbBrand, ComboBox cbModel, TextBox txtSerialNumber, TextBox txtImeiNumber, DateTimePicker dtpProductionDate, DateTimePicker dtpPurchaseDate, TextBox txtPurchasePrice, TextBox txtSalePrice, TextBox txtAmount, TextBox txtVAT, TextBox txtCPU, TextBox txtOS, TextBox txtMemory, TextBox txtResolution, TextBox txtColor, PictureBox pictureBoxImage)
         {
             try
@@ -414,7 +415,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -445,9 +446,9 @@ namespace PHONE_SALE
                 }
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -483,7 +484,7 @@ namespace PHONE_SALE
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
 
             return state;

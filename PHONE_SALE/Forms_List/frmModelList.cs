@@ -14,6 +14,8 @@ namespace PHONE_SALE
 {
     public partial class frmModelList : Form
     {
+        General general;
+
         public frmModelList()
         {
             InitializeComponent();
@@ -21,21 +23,35 @@ namespace PHONE_SALE
 
         private void frmModelList_Load(object sender, EventArgs e)
         {
-            Models models = new Models();
-            models.getModelList(dataGridViewModel);
+            try
+            {
+                general = new General();
+                general.getList(dataGridViewModel, "Select * from vw_getBrandModelList");
+            }
+            catch (Exception ex)
+            {
+                General._MyCustomErrorMessage(ex);
+            }
         }
 
         private void dataGridViewModel_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmUpdateModel frmUpdateModel = new frmUpdateModel();
-
-            if (dataGridViewModel.Rows.Count > 0)
+            try
             {
-                frmUpdateModel.lblId.Text = dataGridViewModel.CurrentRow.Cells["ModelId"].Value.ToString();
-                frmUpdateModel.txtModel.Text = dataGridViewModel.CurrentRow.Cells["Model"].Value.ToString();
-            }
+                frmUpdateModel frmUpdateModel = new frmUpdateModel();
 
-            frmUpdateModel.ShowDialog();
+                if (dataGridViewModel.Rows.Count > 0)
+                {
+                    frmUpdateModel.lblId.Text = dataGridViewModel.CurrentRow.Cells["ModelId"].Value.ToString();
+                    frmUpdateModel.txtModel.Text = dataGridViewModel.CurrentRow.Cells["Model"].Value.ToString();
+                }
+
+                frmUpdateModel.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                General._MyCustomErrorMessage(ex);
+            }
         }
     }
 }

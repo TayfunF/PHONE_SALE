@@ -76,33 +76,33 @@ namespace PHONE_SALE.MyClass
         SqlDataAdapter da = null;
 
         //Model Listeleme
-        public void getModelList(DataGridView dataGridView)
-        {
-            try
-            {
-                con = new SqlConnection(general.connectionString);
-                query = "Select * from vw_getBrandModelList";
-                da = new SqlDataAdapter(query, con);
+        //public void getModelList(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        con = new SqlConnection(general.connectionString);
+        //        query = "Select * from vw_getBrandModelList";
+        //        da = new SqlDataAdapter(query, con);
 
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
+        //        if (con.State == ConnectionState.Closed)
+        //        {
+        //            con.Open();
+        //        }
 
-                dt = new DataTable();
-                da.Fill(dt);
-                dataGridView.DataSource = dt;
+        //        dt = new DataTable();
+        //        da.Fill(dt);
+        //        dataGridView.DataSource = dt;
 
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
-            }
-        }
+        //        if (con.State == ConnectionState.Open)
+        //        {
+        //            con.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+        //    }
+        //}
 
         //Model Ekleme methodu
         public void addModel(ComboBox cbBrand, TextBox txtModel)
@@ -138,7 +138,7 @@ namespace PHONE_SALE.MyClass
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -172,7 +172,7 @@ namespace PHONE_SALE.MyClass
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
 
@@ -203,7 +203,7 @@ namespace PHONE_SALE.MyClass
             }
             catch (Exception ex)
             {
-                General._ShowCustomMyMessage(ex.Message, "Hata", General._MessageTip._error, General._MessageCategory._DB);
+                General._MyCustomErrorMessage(ex);
             }
         }
     }

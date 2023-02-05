@@ -86,6 +86,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddBrand";
             this.Text = "Marka Ekle";
             this.ResumeLayout(false);

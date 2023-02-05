@@ -10,13 +10,12 @@ using System.Windows.Forms;
 
 namespace PHONE_SALE
 {
-    public partial class frmAddCustomer : Form
+    public partial class frmUpdateCustomer : Form
     {
-        Customers customers;
-
-        public frmAddCustomer()
+        public frmUpdateCustomer()
         {
             InitializeComponent();
+            lblId.Visible = false;
         }
     }
 }

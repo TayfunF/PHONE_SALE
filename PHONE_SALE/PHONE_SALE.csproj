@@ -77,6 +77,12 @@
     <Compile Include="Forms_Update\frmUpdateBrand.Designer.cs">
       <DependentUpon>frmUpdateBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms_Update\frmUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms_Update\frmUpdateCustomer.Designer.cs">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms_Update\frmUpdateModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Update\frmUpdateBrand.resx">
       <DependentUpon>frmUpdateBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Update\frmUpdateCustomer.resx">
+      <DependentUpon>frmUpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Update\frmUpdateModel.resx">
       <DependentUpon>frmUpdateModel.cs</DependentUpon>
